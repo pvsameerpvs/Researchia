@@ -59,26 +59,24 @@ export default function CourseCard({ course }: CourseCardProps) {
           </div>
           <div className="flex items-center gap-1.5 text-xs text-slate-500">
             <BookOpen size={14} className="text-primary" />
-            <span>{course.lessons} Lessons</span>
+            <span>{course.lessons} Research Units</span>
           </div>
           <div className="flex items-center gap-1.5 text-xs text-slate-500">
             <Users size={14} className="text-primary" />
-            <span>{course.students}</span>
+            <span>{course.students} Scholars</span>
           </div>
         </div>
       </CardContent>
 
       <CardFooter className="p-5 pt-0 mt-auto flex items-center justify-between">
         <div className="flex flex-col">
-          <span className="text-sm text-slate-400 line-through font-normal">
-            ${(course.price * 1.5).toFixed(0)}
-          </span>
-          <span className="text-xl font-bold text-slate-900">
+          <span className="text-[10px] uppercase font-black tracking-widest text-slate-300">Grant Allocation</span>
+          <span className="text-xl font-black text-slate-900">
             ${course.price}
           </span>
         </div>
-        <Button asChild className="rounded-full px-6 transition-all group-hover:shadow-md">
-          <Link href={`/courses/${course.slug}`}>View Course</Link>
+        <Button asChild className="rounded-xl px-6 h-11 font-bold shadow-lg shadow-primary/10 transition-all group-hover:bg-slate-900 group-hover:text-white">
+          <Link href={`/courses/${course.slug}`}>Examine Research</Link>
         </Button>
       </CardFooter>
     </Card>

@@ -1,4 +1,4 @@
-import { Course, Lesson } from "@/types/course";
+import { Course, Lesson, QuizQuestion, Module } from "@/types/course";
 
 export const courses: Course[] = [
   {
@@ -7,7 +7,7 @@ export const courses: Course[] = [
     title: "Physical & Biological Foundations of Behavior",
     category: "Neuroscience",
     description: "PhD-level research into the biological mechanisms, neural pathways, and physical manifestations of human action and reaction.",
-    thumbnail: "/courses/physical-behavior.png",
+    thumbnail: "https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2071&auto=format&fit=crop",
     duration: "16 Weeks",
     lessons: 64,
     students: 450,
@@ -16,7 +16,7 @@ export const courses: Course[] = [
     validityPeriod: "16 Months",
     instructor: {
       name: "Dr. Sarah Mitchell",
-      avatar: "/instructors/john.png",
+      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Sarah",
     },
   },
   {
@@ -25,7 +25,7 @@ export const courses: Course[] = [
     title: "Advanced Human Behavior & Psychological Research",
     category: "Psychology",
     description: "Deep dive into complex behavioral patterns, cognitive architectures, and social psychological research methodologies at the doctoral level.",
-    thumbnail: "/courses/human-behavior.png",
+    thumbnail: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2040&auto=format&fit=crop",
     duration: "14 Weeks",
     lessons: 52,
     students: 820,
@@ -34,7 +34,7 @@ export const courses: Course[] = [
     validityPeriod: "14 Months",
     instructor: {
       name: "Prof. Arthur Chen",
-      avatar: "/instructors/john.png",
+      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Arthur",
     },
   },
   {
@@ -43,7 +43,7 @@ export const courses: Course[] = [
     title: "Organizational Behavior & Systemic Leadership",
     category: "Management",
     description: "Examining the dynamics of group behavior, corporate culture, and systemic leadership through the lens of PhD research.",
-    thumbnail: "/courses/organizational-behavior.png",
+    thumbnail: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2070&auto=format&fit=crop",
     duration: "12 Weeks",
     lessons: 40,
     students: 1100,
@@ -52,7 +52,7 @@ export const courses: Course[] = [
     validityPeriod: "12 Months",
     instructor: {
       name: "Dr. Elena Rodriguez",
-      avatar: "/instructors/john.png",
+      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Elena",
     },
   },
   {
@@ -61,7 +61,7 @@ export const courses: Course[] = [
     title: "Client & Consumer Behavior: Decision Analysis",
     category: "Economics",
     description: "Advanced doctoral research into consumer decision-making, behavioral economics, and the psychology of client interactions.",
-    thumbnail: "/courses/client-behavior.png",
+    thumbnail: "https://images.unsplash.com/photo-144465330034a-1df308e23b37?q=80&w=2070&auto=format&fit=crop",
     duration: "10 Weeks",
     lessons: 36,
     students: 650,
@@ -70,7 +70,7 @@ export const courses: Course[] = [
     validityPeriod: "10 Months",
     instructor: {
       name: "Prof. David Low",
-      avatar: "/instructors/john.png",
+      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=David",
     },
   },
   {
@@ -79,7 +79,7 @@ export const courses: Course[] = [
     title: "Family Systems & Intergenerational Behavior",
     category: "Sociology",
     description: "PhD research into family dynamics, intergenerational transmission of behavior, and systemic therapeutic interventions.",
-    thumbnail: "/courses/family-behavior.png",
+    thumbnail: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2070&auto=format&fit=crop",
     duration: "12 Weeks",
     lessons: 44,
     students: 380,
@@ -88,7 +88,7 @@ export const courses: Course[] = [
     validityPeriod: "12 Months",
     instructor: {
       name: "Dr. Julianne Smith",
-      avatar: "/instructors/john.png",
+      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Julianne",
     },
   },
   {
@@ -97,40 +97,41 @@ export const courses: Course[] = [
     title: "Prosocial Behavior: Sympathy, Kindness & Humanity",
     category: "Humanities",
     description: "Investigating the evolutionary, psychological, and sociological roots of kindness, sympathy, and altruistic behavior.",
-    thumbnail: "/courses/kindness-humanity.png",
+    thumbnail: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2070&auto=format&fit=crop",
     duration: "2 Weeks",
     lessons: 28,
     students: 940,
     price: 149,
     mode: "Online",
-    validityPeriod: "2 Months", // As requested: 2 week course = 2 months validity
+    validityPeriod: "2 Months",
     instructor: {
       name: "Dr. Marcus Thorne",
-      avatar: "/instructors/john.png",
+      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Marcus",
     },
   },
 ];
 
 const generateLessons = (lessonTitles: string[]): Lesson[] => {
   return lessonTitles.map((title, index) => ({
-    id: `L${index + 1}`,
+    id: `L${index + 1}-${Math.random().toString(36).substr(2, 5)}`,
     title,
-    videoUrl: "#",
-    audioUrl: "#",
-    pdfUrl: "#",
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
     duration: "45m",
     type: "video"
   }));
 };
 
-const finalExamLesson: Lesson = {
-  id: "FE1",
+const generateQuiz = (questions: QuizQuestion[]): Lesson => ({
+  id: `QZ-${Math.random().toString(36).substr(2, 5)}`,
   title: "Final Doctorate Examination",
   duration: "120m",
-  type: "quiz"
-};
+  type: "quiz",
+  questions: questions
+});
 
-export const courseDetails = {
+export const courseDetails: Record<string, { about: string; learningOutcomes: string[]; modules: Module[] }> = {
   "physical-foundations-of-behavior": {
     about: "This PhD-level research course explores the intricate relationship between physical biology and behavioral output. We examine the latest neuro-imaging data, endocrine influences, and genetic predispositions that shape how humans interact with their environment.",
     learningOutcomes: [
@@ -155,7 +156,33 @@ export const courseDetails = {
       {
         id: "M3",
         title: "Final Assessment",
-        lessons: [finalExamLesson]
+        lessons: [generateQuiz([
+          {
+            id: "q1",
+            question: "Upload a brief recording (video) explaining the function of the Amygdala in behavioral stress response.",
+            submissionType: "video",
+          },
+          {
+            id: "q2",
+            question: "Identify the neural pathway shown in the attached image and list its primary neuro-transmitters.",
+            submissionType: "mcq",
+            options: ["Dopaminergic Pathway", "Serotonergic Pathway", "GABAergic System", "Glutamatergic Circuit"],
+            correctAnswer: 0,
+            requiredImage: "https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2071&auto=format&fit=crop"
+          },
+          {
+            id: "q3",
+            question: "Submit your research proposal (PDF) for the 'Homeostasis & Behavior' longitudinal study.",
+            submissionType: "file",
+          },
+          {
+            id: "q4",
+            question: "Which hormone is most closely associated with social bonding and trust?",
+            submissionType: "mcq",
+            options: ["Cortisol", "Adrenaline", "Oxytocin", "Estrogen"],
+            correctAnswer: 2
+          }
+        ])]
       }
     ]
   },
@@ -183,7 +210,20 @@ export const courseDetails = {
       {
         id: "M3",
         title: "Final Assessment",
-        lessons: [finalExamLesson]
+        lessons: [generateQuiz([
+          {
+            id: "q1",
+            question: "What is the 'confirmation bias'?",
+            options: ["The tendency to agree with everyone", "The tendency to search for information that supports existing beliefs", "The ability to recall long-term memories", "A physical brain defect"],
+            correctAnswer: 1
+          },
+          {
+            id: "q2",
+            question: "Who developed the concept of 'Collective Unconscious'?",
+            options: ["Sigmund Freud", "Carl Jung", "B.F. Skinner", "Jean Piaget"],
+            correctAnswer: 1
+          }
+        ])]
       }
     ]
   },
@@ -211,7 +251,14 @@ export const courseDetails = {
       {
         id: "M3",
         title: "Final Assessment",
-        lessons: [finalExamLesson]
+        lessons: [generateQuiz([
+          {
+            id: "q1",
+            question: "Transformational leadership primarily focuses on:",
+            options: ["Punishment and reward", "Inspiring followers to exceed their own self-interests", "Maintaining the status quo", "Strict hierarchy"],
+            correctAnswer: 1
+          }
+        ])]
       }
     ]
   },
@@ -239,7 +286,14 @@ export const courseDetails = {
       {
         id: "M3",
         title: "Final Assessment",
-        lessons: [finalExamLesson]
+        lessons: [generateQuiz([
+          {
+            id: "q1",
+            question: "Loss aversion suggests that:",
+            options: ["Gains are better than losses", "The pain of losing is twice as powerful as the joy of gaining", "People don't care about money", "Markets are always rational"],
+            correctAnswer: 1
+          }
+        ])]
       }
     ]
   },
@@ -267,7 +321,14 @@ export const courseDetails = {
       {
         id: "M3",
         title: "Final Assessment",
-        lessons: [finalExamLesson]
+        lessons: [generateQuiz([
+          {
+            id: "q1",
+            question: "What is a 'Genogram' used for in family research?",
+            options: ["Measuring IQ", "Mapping family relationships and medical history", "Calculating family income", "Genetic sequencing"],
+            correctAnswer: 1
+          }
+        ])]
       }
     ]
   },
@@ -295,7 +356,14 @@ export const courseDetails = {
       {
         id: "M3",
         title: "Final Assessment",
-        lessons: [finalExamLesson]
+        lessons: [generateQuiz([
+          {
+            id: "q1",
+            question: "Altruism is defined as:",
+            options: ["Helping others for personal gain", "Selfless concern for the well-being of others", "A form of social dominance", "An accidental behavior"],
+            correctAnswer: 1
+          }
+        ])]
       }
     ]
   }

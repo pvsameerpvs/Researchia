@@ -1,3 +1,14 @@
+export interface QuizQuestion {
+  id: string;
+  question: string;
+  options?: string[];
+  correctAnswer?: number;
+  submissionType?: "mcq" | "file" | "video" | "image" | "mixed";
+  requiredFile?: string;
+  requiredVideo?: string;
+  requiredImage?: string;
+}
+
 export interface Lesson {
   id: string;
   title: string;
@@ -6,6 +17,7 @@ export interface Lesson {
   pdfUrl?: string;
   duration: string;
   type: "video" | "audio" | "pdf" | "quiz";
+  questions?: QuizQuestion[];
 }
 
 export interface Module {
@@ -26,7 +38,7 @@ export interface Course {
   students: number;
   price: number;
   mode: "Online" | "Offline";
-  validityPeriod: string; // e.g. "2 Months"
+  validityPeriod: string;
   instructor: {
     name: string;
     avatar: string;

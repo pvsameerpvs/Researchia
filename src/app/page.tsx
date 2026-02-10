@@ -115,36 +115,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Courses */}
+      {/* Featured Research Programs */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
             <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Featured Courses</h2>
-              <p className="text-slate-600 max-w-xl">
-                Hand-picked courses by our industry experts to help you get started with the most in-demand skills today.
+              <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Active Research Programs</h2>
+              <p className="text-slate-600 max-w-xl font-medium">
+                Select from our elite doctoral curricula, each mentored by leading clinical psychologists and behavioral scientists.
               </p>
             </div>
-            <Button variant="outline" asChild className="rounded-full">
-              <Link href="/courses">View All Courses</Link>
+            <Button variant="outline" asChild className="rounded-2xl border-slate-200 h-12 px-6 font-bold">
+              <Link href="/courses">Full Research Directory</Link>
             </Button>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {courses.map((course) => (
+            {courses.slice(0, 3).map((course) => (
               <CourseCard key={course.id} course={course} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Why Choose Researchia? */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Why Choose Us?</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              We provide the best learning experience with features tailored for your success.
+          <div className="text-center space-y-4 mb-20">
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Institutional Excellence</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto font-medium text-lg">
+              Providing the academic infrastructure required for groundbreaking behavioral discovery.
             </p>
           </div>
           
@@ -152,26 +152,26 @@ export default function Home() {
             {[
               {
                 icon: <Globe className="text-primary" size={32} />,
-                title: "Learn Anywhere",
-                desc: "Access your courses on any device, anywhere in the world, at your own pace."
+                title: "Global Lab Access",
+                desc: "Engage with virtual research laboratories and longitudinal datasets from any academic district globally."
               },
               {
                 icon: <Users className="text-emerald-500" size={32} />,
-                title: "Expert Instructors",
-                desc: "Learn from industry professionals with years of real-world experience."
+                title: "Doctoral Mentorship",
+                desc: "Work directly with tenured professors and principal researchers with decades of clinical experience."
               },
               {
                 icon: <CheckCircle2 className="text-purple-500" size={32} />,
-                title: "Quality Content",
-                desc: "High-quality video lessons, interactive quizzes, and practical projects."
+                title: "Peer-Reviewed Content",
+                desc: "Access exclusive manuscripts, neuro-anatomical mappings, and structured observational data sets."
               }
             ].map((feature, idx) => (
-              <div key={idx} className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-primary/20 hover:shadow-lg transition-all duration-300 space-y-6 group">
-                <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+              <div key={idx} className="p-10 rounded-[40px] bg-slate-50 border border-slate-100 hover:border-primary/20 hover:shadow-2xl hover:translate-y-[-8px] transition-all duration-500 group">
+                <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-lg shadow-slate-200 group-hover:scale-110 transition-transform">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">{feature.title}</h3>
-                <p className="text-slate-600 leading-relaxed">
+                <h3 className="text-2xl font-black text-slate-900 pt-4">{feature.title}</h3>
+                <p className="text-slate-500 leading-relaxed font-medium">
                   {feature.desc}
                 </p>
               </div>
@@ -183,19 +183,19 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="bg-primary rounded-[40px] p-8 md:p-16 text-center text-white relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent)]"></div>
-            <div className="relative z-10 space-y-8 max-w-3xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold">Ready to Start Learning?</h2>
-              <p className="text-primary-foreground/80 text-lg md:text-xl">
-                Join thousands of students and start your learning journey today. Get unlimited access to all premium courses.
+          <div className="bg-slate-900 rounded-[60px] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.1),transparent)]"></div>
+            <div className="relative z-10 space-y-10 max-w-3xl mx-auto">
+              <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">Advance Your <br />Research Candidacy</h2>
+              <p className="text-slate-400 text-lg md:text-xl font-medium">
+                Join our elite circle of 10,000+ doctoral candidates. Access unlimited institutional resources and start your investigation today.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button size="lg" className="bg-white text-primary hover:bg-slate-100 h-14 px-10 rounded-full font-bold">
-                  Get Started Now
+              <div className="flex flex-col sm:flex-row justify-center gap-6 pt-4">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white h-16 px-12 rounded-2xl font-black text-lg shadow-2xl shadow-primary/20 transition-all hover:scale-105">
+                  Apply for Candidacy
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 h-14 px-10 rounded-full font-bold">
-                  View Pricing
+                <Button size="lg" variant="outline" className="border-white/10 text-white hover:bg-white/5 h-16 px-12 rounded-2xl font-black text-lg backdrop-blur-sm">
+                  Research Prospectus
                 </Button>
               </div>
             </div>
