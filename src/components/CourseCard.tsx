@@ -33,12 +33,11 @@ export default function CourseCard({ course }: CourseCardProps) {
 
       <CardContent className="p-5 flex-grow">
         <div className="flex items-center gap-2 mb-3">
-          <div className="w-6 h-6 rounded-full overflow-hidden bg-slate-100 flex-shrink-0">
-            <Image 
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-slate-100 flex-shrink-0 border border-slate-200">
+            <img 
               src={course.instructor.avatar} 
               alt={course.instructor.name} 
-              width={24} 
-              height={24} 
+              className="w-full h-full object-cover"
             />
           </div>
           <span className="text-xs font-medium text-slate-500">{course.instructor.name}</span>

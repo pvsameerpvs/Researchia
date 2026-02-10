@@ -16,7 +16,7 @@ export const courses: Course[] = [
     validityPeriod: "16 Months",
     instructor: {
       name: "Dr. Sarah Mitchell",
-      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Sarah",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=256&h=256&auto=format&fit=crop",
     },
   },
   {
@@ -34,7 +34,7 @@ export const courses: Course[] = [
     validityPeriod: "14 Months",
     instructor: {
       name: "Prof. Arthur Chen",
-      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Arthur",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=256&h=256",
     },
   },
   {
@@ -52,7 +52,7 @@ export const courses: Course[] = [
     validityPeriod: "12 Months",
     instructor: {
       name: "Dr. Elena Rodriguez",
-      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Elena",
+      avatar: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=256&h=256&auto=format&fit=crop",
     },
   },
   {
@@ -61,7 +61,7 @@ export const courses: Course[] = [
     title: "Client & Consumer Behavior: Decision Analysis",
     category: "Economics",
     description: "Advanced doctoral research into consumer decision-making, behavioral economics, and the psychology of client interactions.",
-    thumbnail: "https://images.unsplash.com/photo-144465330034a-1df308e23b37?q=80&w=2070&auto=format&fit=crop",
+    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
     duration: "10 Weeks",
     lessons: 36,
     students: 650,
@@ -70,7 +70,7 @@ export const courses: Course[] = [
     validityPeriod: "10 Months",
     instructor: {
       name: "Prof. David Low",
-      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=David",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=256&h=256&auto=format&fit=crop",
     },
   },
   {
@@ -88,7 +88,7 @@ export const courses: Course[] = [
     validityPeriod: "12 Months",
     instructor: {
       name: "Dr. Julianne Smith",
-      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Julianne",
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=256&h=256",
     },
   },
   {
@@ -106,7 +106,7 @@ export const courses: Course[] = [
     validityPeriod: "2 Months",
     instructor: {
       name: "Dr. Marcus Thorne",
-      avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Marcus",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=256&h=256",
     },
   },
 ];

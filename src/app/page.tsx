@@ -61,7 +61,7 @@ export default function Home() {
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
                       <img 
-                        src={`https://api.dicebear.com/9.x/avataaars/svg?seed=${i + 20}`} 
+                        src={`https://images.unsplash.com/photo-${1500000000000 + i}?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80`} 
                         alt="User Avatar" 
                         width={40} 
                         height={40} 
