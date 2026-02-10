@@ -59,7 +59,7 @@ export default function Navbar() {
               <GraduationCap size={24} />
             </div>
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">
-              EduPath
+              Researchia
             </span>
           </Link>
 

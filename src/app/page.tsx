@@ -7,8 +7,7 @@ import {
   CheckCircle2, 
   Users, 
   Award, 
-  Globe,
-  Star
+  Globe
 } from "lucide-react";
 import CourseCard from "@/components/CourseCard";
 import { courses } from "@/constants/data";
@@ -29,18 +28,19 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <div className="flex-1 space-y-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold animate-in fade-in slide-in-from-bottom-2 duration-500">
-                <Star size={16} fill="currentColor" />
-                <span>The #1 Choice for Online Learning</span>
+                <Globe size={16} fill="currentColor" />
+                <span>PhD Level Behavioral Research</span>
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] tracking-tight animate-in fade-in slide-in-from-bottom-4 duration-700">
-                Learn New Skills <br />
-                <span className="text-primary">Anywhere, Anytime</span>
+                Decoding Human <br />
+                <span className="text-primary">Behavioral Patterns</span>
               </h1>
               
               <p className="text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed animate-in fade-in slide-in-from-bottom-6 duration-1000">
-                Access over 500+ premium courses from world-class instructors. 
-                Start your journey today and transform your career with EduPath.
+                Advanced doctoral research focusing on physical foundations, family systems, 
+                organizational dynamics, and the essence of human kindness. 
+                Transforming data into psychological insights with Researchia.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 animate-in fade-in slide-in-from-bottom-8 duration-1000">

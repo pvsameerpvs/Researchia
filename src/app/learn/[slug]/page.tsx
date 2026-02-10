@@ -31,7 +31,7 @@ import { courses, courseDetails } from "@/constants/data";
 
 export default function CourseLearningPage({ params }: { params: { slug: string } }) {
   const course = courses.find(c => c.slug === params.slug) || courses[0];
-  const details = courseDetails[params.slug as keyof typeof courseDetails] || courseDetails["full-stack-web-development"];
+  const details = courseDetails[params.slug as keyof typeof courseDetails] || courseDetails["advanced-human-behavior"];
   
   const [activeLesson, setActiveLesson] = useState(details.modules[0].lessons[0]);
   const [sidebarOpen, setSidebarOpen] = useState(true);

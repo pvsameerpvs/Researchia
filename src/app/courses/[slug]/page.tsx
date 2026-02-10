@@ -28,7 +28,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function CourseDetailsPage({ params }: { params: { slug: string } }) {
   const course = courses.find((c) => c.slug === params.slug);
-  const details = courseDetails[params.slug as keyof typeof courseDetails] || courseDetails["full-stack-web-development"];
+  const details = courseDetails[params.slug as keyof typeof courseDetails] || courseDetails["advanced-human-behavior"];
 
   if (!course) {
     return (
