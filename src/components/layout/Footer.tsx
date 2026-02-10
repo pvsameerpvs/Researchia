@@ -9,13 +9,13 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="bg-primary p-2 rounded-xl text-white">
+              <div className="bg-primary p-2 rounded-xl text-white shadow-lg shadow-primary/20">
                 <GraduationCap size={24} />
               </div>
-              <span className="text-xl font-bold text-slate-900">EduPath</span>
+              <span className="text-xl font-black text-slate-900">Researchia</span>
             </Link>
             <p className="text-slate-600 leading-relaxed max-w-xs">
-              Empowering learners worldwide with premium courses and professional certification to accelerate your career growth.
+              Advancing the frontiers of behavioral science through elite PhD research programs and doctoral certifications.
             </p>
             <div className="flex items-center gap-4">
               <a href="#" className="p-2 bg-white border border-slate-200 rounded-full text-slate-600 hover:text-primary hover:border-primary transition-all">
@@ -35,41 +35,41 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900">Quick Links</h3>
-            <ul className="space-y-4">
-              <li><Link href="/courses" className="text-slate-600 hover:text-primary transition-colors">All Courses</Link></li>
-              <li><Link href="/about" className="text-slate-600 hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="text-slate-600 hover:text-primary transition-colors">Contact</Link></li>
-              <li><Link href="/about" className="text-slate-600 hover:text-primary transition-colors">Offline Learning</Link></li>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900">Scholarly Links</h3>
+            <ul className="space-y-4 shadow-sm p-4 rounded-xl bg-white/50">
+              <li><Link href="/courses" className="text-slate-600 hover:text-primary transition-colors font-medium">Research Directory</Link></li>
+              <li><Link href="/about" className="text-slate-600 hover:text-primary transition-colors font-medium">Institutional Mission</Link></li>
+              <li><Link href="/contact" className="text-slate-600 hover:text-primary transition-colors font-medium">Academic Support</Link></li>
+              <li><Link href="/about" className="text-slate-600 hover:text-primary transition-colors font-medium">Research Centers</Link></li>
             </ul>
           </div>
 
           {/* Categories */}
           <div className="space-y-6">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900">Categories</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900">Fields of Study</h3>
             <ul className="space-y-4">
-              <li><Link href="/courses?category=development" className="text-slate-600 hover:text-primary transition-colors">Web Development</Link></li>
-              <li><Link href="/courses?category=design" className="text-slate-600 hover:text-primary transition-colors">UI/UX Design</Link></li>
-              <li><Link href="/courses?category=business" className="text-slate-600 hover:text-primary transition-colors">Business Management</Link></li>
-              <li><Link href="/courses?category=marketing" className="text-slate-600 hover:text-primary transition-colors">Digital Marketing</Link></li>
+              <li><Link href="/courses" className="text-slate-600 hover:text-primary transition-colors font-medium">Neuroscience</Link></li>
+              <li><Link href="/courses" className="text-slate-600 hover:text-primary transition-colors font-medium">Family Systems</Link></li>
+              <li><Link href="/courses" className="text-slate-600 hover:text-primary transition-colors font-medium">Organizational Psychology</Link></li>
+              <li><Link href="/courses" className="text-slate-600 hover:text-primary transition-colors font-medium">Economics & Behavior</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900">Contact Us</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900">Institutional Contact</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="text-primary mt-1" size={18} />
-                <span className="text-slate-600 text-sm">123 Education St, Knowledge City, State 10101</span>
+                <span className="text-slate-600 text-sm">Researchia HQ, 42 Scholars Row, Cambridge Academic District</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-primary" size={18} />
-                <span className="text-slate-600 text-sm">+1 (555) 000-1111</span>
+                <span className="text-slate-600 text-sm">+1 (555) PHD-INFO</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-primary" size={18} />
-                <span className="text-slate-600 text-sm">support@edupath.com</span>
+                <span className="text-slate-600 text-sm">chancellor@researchia.edu</span>
               </li>
             </ul>
           </div>
@@ -77,7 +77,7 @@ export default function Footer() {
 
         <div className="mt-12 md:mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm text-center">
-            © {new Date().getFullYear()} EduPath LMS. All rights reserved.
+            © {new Date().getFullYear()} Researchia Doctoral LMS. Licensed by the Global Research Authority.
           </p>
           <div className="flex gap-6 text-sm">
             <Link href="#" className="text-slate-500 hover:text-primary">Privacy Policy</Link>

@@ -1,4 +1,4 @@
-import { Course } from "@/types/course";
+import { Course, Lesson } from "@/types/course";
 
 export const courses: Course[] = [
   {
@@ -13,6 +13,7 @@ export const courses: Course[] = [
     students: 450,
     price: 199,
     mode: "Online",
+    validityPeriod: "16 Months",
     instructor: {
       name: "Dr. Sarah Mitchell",
       avatar: "/instructors/john.png",
@@ -30,6 +31,7 @@ export const courses: Course[] = [
     students: 820,
     price: 189,
     mode: "Online",
+    validityPeriod: "14 Months",
     instructor: {
       name: "Prof. Arthur Chen",
       avatar: "/instructors/john.png",
@@ -47,6 +49,7 @@ export const courses: Course[] = [
     students: 1100,
     price: 179,
     mode: "Offline",
+    validityPeriod: "12 Months",
     instructor: {
       name: "Dr. Elena Rodriguez",
       avatar: "/instructors/john.png",
@@ -64,6 +67,7 @@ export const courses: Course[] = [
     students: 650,
     price: 159,
     mode: "Online",
+    validityPeriod: "10 Months",
     instructor: {
       name: "Prof. David Low",
       avatar: "/instructors/john.png",
@@ -81,6 +85,7 @@ export const courses: Course[] = [
     students: 380,
     price: 169,
     mode: "Offline",
+    validityPeriod: "12 Months",
     instructor: {
       name: "Dr. Julianne Smith",
       avatar: "/instructors/john.png",
@@ -93,17 +98,37 @@ export const courses: Course[] = [
     category: "Humanities",
     description: "Investigating the evolutionary, psychological, and sociological roots of kindness, sympathy, and altruistic behavior.",
     thumbnail: "/courses/kindness-humanity.png",
-    duration: "8 Weeks",
+    duration: "2 Weeks",
     lessons: 28,
     students: 940,
     price: 149,
     mode: "Online",
+    validityPeriod: "2 Months", // As requested: 2 week course = 2 months validity
     instructor: {
       name: "Dr. Marcus Thorne",
       avatar: "/instructors/john.png",
     },
   },
 ];
+
+const generateLessons = (lessonTitles: string[]): Lesson[] => {
+  return lessonTitles.map((title, index) => ({
+    id: `L${index + 1}`,
+    title,
+    videoUrl: "#",
+    audioUrl: "#",
+    pdfUrl: "#",
+    duration: "45m",
+    type: "video"
+  }));
+};
+
+const finalExamLesson: Lesson = {
+  id: "FE1",
+  title: "Final Doctorate Examination",
+  duration: "120m",
+  type: "quiz"
+};
 
 export const courseDetails = {
   "physical-foundations-of-behavior": {
@@ -118,12 +143,19 @@ export const courseDetails = {
     ],
     modules: [
       {
+        id: "M1",
         title: "Neuro-Anatomical Foundations",
-        lessons: ["Limbic System & Action", "Prefrontal Cortex Regulation", "Synaptic Plasticity", "Neural Network Mapping"]
+        lessons: generateLessons(["Limbic System & Action", "Prefrontal Cortex Regulation", "Synaptic Plasticity", "Neural Network Mapping"])
       },
       {
+        id: "M2",
         title: "Biological Feedback Loops",
-        lessons: ["Hormonal Influences", "Sensory Processing", "Motor Output Dynamics", "Homeostasis & Behavior"]
+        lessons: generateLessons(["Hormonal Influences", "Sensory Processing", "Motor Output Dynamics", "Homeostasis & Behavior"])
+      },
+      {
+        id: "M3",
+        title: "Final Assessment",
+        lessons: [finalExamLesson]
       }
     ]
   },
@@ -139,12 +171,19 @@ export const courseDetails = {
     ],
     modules: [
       {
+        id: "M1",
         title: "Cognitive Architectures",
-        lessons: ["Memory Systems", "Attention Mechanisms", "Decision-Making Heuristics", "Metacognition"]
+        lessons: generateLessons(["Memory Systems", "Attention Mechanisms", "Decision-Making Heuristics", "Metacognition"])
       },
       {
+        id: "M2",
         title: "Social Behavioral Dynamics",
-        lessons: ["Groupthink & Conformity", "Identity Formation", "Cultural Behavioral Variance", "Prosocial vs Antisocial Paradigms"]
+        lessons: generateLessons(["Groupthink & Conformity", "Identity Formation", "Cultural Behavioral Variance", "Prosocial vs Antisocial Paradigms"])
+      },
+      {
+        id: "M3",
+        title: "Final Assessment",
+        lessons: [finalExamLesson]
       }
     ]
   },
@@ -160,12 +199,19 @@ export const courseDetails = {
     ],
     modules: [
       {
+        id: "M1",
         title: "Systemic Organizational Theory",
-        lessons: ["Complexity in Organizations", "Cultural Archetypes", "Feedback Systems", "Institutional Memory"]
+        lessons: generateLessons(["Complexity in Organizations", "Cultural Archetypes", "Feedback Systems", "Institutional Memory"])
       },
       {
+        id: "M2",
         title: "Leadership & Power",
-        lessons: ["Transformational Leadership", "Distributed Authority", "Power Dynamics", "Ethical Governance"]
+        lessons: generateLessons(["Transformational Leadership", "Distributed Authority", "Power Dynamics", "Ethical Governance"])
+      },
+      {
+        id: "M3",
+        title: "Final Assessment",
+        lessons: [finalExamLesson]
       }
     ]
   },
@@ -181,12 +227,19 @@ export const courseDetails = {
     ],
     modules: [
       {
+        id: "M1",
         title: "Behavioral Economics",
-        lessons: ["Nudge Theory", "Loss Aversion", "Choice Architecture", "Utility Functions"]
+        lessons: generateLessons(["Nudge Theory", "Loss Aversion", "Choice Architecture", "Utility Functions"])
       },
       {
+        id: "M2",
         title: "The Digital Consumer",
-        lessons: ["Attention Economy", "UX Psychology", "Algorithmic Influence", "Trust & Loyalty Mechanics"]
+        lessons: generateLessons(["Attention Economy", "UX Psychology", "Algorithmic Influence", "Trust & Loyalty Mechanics"])
+      },
+      {
+        id: "M3",
+        title: "Final Assessment",
+        lessons: [finalExamLesson]
       }
     ]
   },
@@ -202,12 +255,19 @@ export const courseDetails = {
     ],
     modules: [
       {
+        id: "M1",
         title: "Intergenerational Dynamics",
-        lessons: ["Genograms & Patterns", "Trauma Transmission", "Attachment Styles", "Family Narratives"]
+        lessons: generateLessons(["Genograms & Patterns", "Trauma Transmission", "Attachment Styles", "Family Narratives"])
       },
       {
+        id: "M2",
         title: "Modern Family Challenges",
-        lessons: ["Digital Boundaries", "Blended Family Dynamics", "Economic Pressures", "Crisis & Resilience"]
+        lessons: generateLessons(["Digital Boundaries", "Blended Family Dynamics", "Economic Pressures", "Crisis & Resilience"])
+      },
+      {
+        id: "M3",
+        title: "Final Assessment",
+        lessons: [finalExamLesson]
       }
     ]
   },
@@ -223,12 +283,19 @@ export const courseDetails = {
     ],
     modules: [
       {
+        id: "M1",
         title: "The Roots of Kindness",
-        lessons: ["Evolutionary Altruism", "Mirror Neurons & Empathy", "Oxytocin & Connection", "Cultural Virtue Systems"]
+        lessons: generateLessons(["Evolutionary Altruism", "Mirror Neurons & Empathy", "Oxytocin & Connection", "Cultural Virtue Systems"])
       },
       {
+        id: "M2",
         title: "Applied Humanity",
-        lessons: ["Sympathy vs Empathy", "Compassion Fatigue", "Prosocial Intervention", "The Future of Altruism"]
+        lessons: generateLessons(["Sympathy vs Empathy", "Compassion Fatigue", "Prosocial Intervention", "The Future of Altruism"])
+      },
+      {
+        id: "M3",
+        title: "Final Assessment",
+        lessons: [finalExamLesson]
       }
     ]
   }

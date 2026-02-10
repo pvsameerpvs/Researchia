@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "EduPath | Modern Learning Management System",
-  description: "Accelerate your career with premium online and offline courses from industry experts.",
+  title: "Researchia | PhD Behavioral Research Institute",
+  description: "Advancing the frontiers of behavioral science through elite doctoral research programs and neural pattern investigations.",
 };
 
 export default function RootLayout({

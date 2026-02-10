@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { 
@@ -10,9 +10,13 @@ import {
   Search, 
   GraduationCap,
   Bell,
-  UserCircle
+  UserCircle,
+  LogOut,
+  BookOpen,
+  Award
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { isUserLoggedIn, logoutUser } from "@/lib/auth";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,23 +28,32 @@ import {
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Courses", href: "/courses" },
+  { name: "Research Programs", href: "/courses" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
+    setIsLoggedIn(isUserLoggedIn());
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
+
+  const handleLogout = () => {
+    logoutUser();
+    setIsLoggedIn(false);
+    router.push("/");
+  };
 
   return (
     <nav
@@ -55,10 +68,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-primary p-2 rounded-xl text-white group-hover:scale-110 transition-transform">
+            <div className="bg-primary p-2 rounded-xl text-white group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
               <GraduationCap size={24} />
             </div>
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">
+            <span className="text-xl font-black bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">
               Researchia
             </span>
           </Link>
@@ -70,7 +83,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
+                  "text-sm font-bold transition-all hover:text-primary",
                   pathname === item.href 
                     ? "text-primary" 
                     : "text-slate-600"
@@ -86,10 +99,14 @@ export default function Navbar() {
             <Button variant="ghost" size="icon" className="text-slate-600">
               <Search size={20} />
             </Button>
-            <Button variant="ghost" size="icon" className="text-slate-600 relative">
-              <Bell size={20} />
-              <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
-            </Button>
+            
+            {isLoggedIn && (
+              <Button variant="ghost" size="icon" className="text-slate-600 relative">
+                <Bell size={20} />
+                <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+              </Button>
+            )}
+
             <div className="h-6 w-px bg-slate-200 mx-2"></div>
             
             <DropdownMenu>
@@ -98,19 +115,41 @@ export default function Navbar() {
                   <UserCircle className="h-6 w-6 text-slate-500" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuContent align="end" className="w-64 rounded-2xl p-2 border-slate-200 shadow-xl">
+                <DropdownMenuLabel className="px-3 py-2">
+                  <div className="text-sm font-bold text-slate-900">Dr. Researcher</div>
+                  <div className="text-xs text-slate-500 font-medium">PhD Scholar</div>
+                </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link href="/my-courses">My Courses</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/certificate">Certificates</Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link href="/login" className="text-primary font-bold">Login</Link>
-                </DropdownMenuItem>
+                
+                {isLoggedIn ? (
+                  <>
+                    <DropdownMenuItem asChild className="rounded-xl cursor-not-allowed">
+                      <Link href="/my-courses" className="flex items-center gap-2">
+                        <BookOpen size={16} />
+                        My Research
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild className="rounded-xl cursor-not-allowed">
+                      <Link href="/certificate" className="flex items-center gap-2">
+                        <Award size={16} />
+                        Doctoral Certificates
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleLogout} className="rounded-xl text-rose-500 font-bold focus:text-rose-600 focus:bg-rose-50 cursor-pointer">
+                      <LogOut size={16} className="text-rose-500" />
+                      Sign Out
+                    </DropdownMenuItem>
+                  </>
+                ) : (
+                  <DropdownMenuItem asChild className="rounded-xl focus:bg-primary focus:text-white">
+                    <Link href="/login" className="flex items-center gap-2 font-bold py-2">
+                      <LogOut size={16} />
+                      Scholarly Login
+                    </Link>
+                  </DropdownMenuItem>
+                )}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -138,7 +177,7 @@ export default function Navbar() {
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
-                  "p-3 rounded-lg text-base font-medium transition-colors",
+                  "p-3 rounded-lg text-base font-bold transition-colors",
                   pathname === item.href 
                     ? "bg-primary/10 text-primary" 
                     : "text-slate-600 hover:bg-slate-50"
@@ -149,12 +188,20 @@ export default function Navbar() {
             ))}
             <hr className="border-slate-100" />
             <div className="flex flex-col gap-2 pt-2">
-              <Button asChild variant="outline" className="justify-start">
-                <Link href="/my-courses">My Courses</Link>
-              </Button>
-              <Button asChild className="justify-start">
-                <Link href="/login">Login / Sign Up</Link>
-              </Button>
+              {isLoggedIn ? (
+                <>
+                  <Button asChild variant="outline" className="justify-start h-12 rounded-xl">
+                    <Link href="/my-courses">My Research</Link>
+                  </Button>
+                  <Button onClick={handleLogout} variant="destructive" className="justify-start h-12 rounded-xl font-bold">
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <Button asChild className="justify-start h-12 rounded-xl font-bold bg-slate-900">
+                  <Link href="/login">Scholarly Login</Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>
