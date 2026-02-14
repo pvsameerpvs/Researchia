@@ -87,7 +87,8 @@ export default function ReadingModulePage() {
                  {materials.map((item) => (
                    <div 
                      key={item.id} 
-                     className={`group relative p-6 rounded-2xl border transition-all duration-300 ${
+                     onClick={() => handleAction(item.id, "view")}
+                     className={`group relative p-6 rounded-2xl border transition-all duration-300 cursor-pointer ${
                        item.status === 'completed' 
                          ? 'bg-emerald-50/30 border-emerald-100 hover:bg-emerald-50/50' 
                          : 'bg-white border-border hover:border-primary/30 hover:shadow-lg'
@@ -130,7 +131,10 @@ export default function ReadingModulePage() {
                              ? "bg-white/50 hover:bg-emerald-100 hover:text-emerald-700 border-emerald-200" 
                              : "bg-primary hover:bg-primary/90 text-white shadow-md shadow-primary/20"
                          }`}
-                         onClick={() => handleAction(item.id, "view")}
+                         onClick={(e) => {
+                           e.stopPropagation();
+                           handleAction(item.id, "view");
+                         }}
                          disabled={loadingId === item.id}
                        >
                          <Eye size={14} className="mr-2" />
@@ -140,7 +144,10 @@ export default function ReadingModulePage() {
                          variant="outline" 
                          size="sm" 
                          className="flex-1 font-bold h-9 text-xs border-border hover:bg-secondary/10 hover:text-secondary hover:border-secondary/30 transition-colors"
-                         onClick={() => handleAction(item.id, "download")}
+                         onClick={(e) => {
+                           e.stopPropagation();
+                           handleAction(item.id, "download");
+                         }}
                          disabled={loadingId === item.id}
                        >
                          <Download size={14} className="mr-2" />

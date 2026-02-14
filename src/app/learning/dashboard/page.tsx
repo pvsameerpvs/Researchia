@@ -6,8 +6,19 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { BookOpen, MonitorPlay, ClipboardList } from "lucide-react";
+import { practicalChecklistData, readingMaterialsData, videoLessonsData } from "@/lib/fake-data";
 
 export default function DashboardPage() {
+  const totalItems = practicalChecklistData.length + readingMaterialsData.length + videoLessonsData.length;
+  
+  const completedPractical = practicalChecklistData.filter(i => i.status === "completed").length;
+  const completedReading = readingMaterialsData.filter(i => i.status === "completed").length;
+  const completedVideo = videoLessonsData.filter(i => i.status === "completed").length;
+  
+  const completedItems = completedPractical + completedReading + completedVideo;
+  
+  const overallProgress = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
+
   return (
     <main className="min-h-screen bg-background flex flex-col">
       <Navbar />
@@ -30,6 +41,9 @@ export default function DashboardPage() {
               <div className="flex-grow text-center md:text-left space-y-2">
                 <h3 className="text-xl font-bold text-foreground">Reading Module</h3>
                 <p className="text-muted-foreground text-sm">Access comprehensive reading materials and research papers.</p>
+                <div className="text-xs font-bold text-muted-foreground bg-muted inline-block px-2 py-1 rounded">
+                   {completedReading}/{readingMaterialsData.length} Completed
+                </div>
               </div>
               <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold min-w-[160px] shadow-lg shadow-secondary/20">
                 <Link href="/learning/reading">Start Reading</Link>
@@ -44,6 +58,9 @@ export default function DashboardPage() {
               <div className="flex-grow text-center md:text-left space-y-2">
                 <h3 className="text-xl font-bold text-foreground">Watching Module</h3>
                 <p className="text-muted-foreground text-sm">Watch HD video lectures and expert interviews.</p>
+                <div className="text-xs font-bold text-muted-foreground bg-muted inline-block px-2 py-1 rounded">
+                   {completedVideo}/{videoLessonsData.length} Completed
+                </div>
               </div>
               <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold min-w-[160px] shadow-lg shadow-secondary/20">
                 <Link href="/learning/watching">Start Watching</Link>
@@ -58,6 +75,9 @@ export default function DashboardPage() {
               <div className="flex-grow text-center md:text-left space-y-2">
                 <h3 className="text-xl font-bold text-foreground">Practical Module</h3>
                 <p className="text-muted-foreground text-sm">Complete assignments and submit your practical work.</p>
+                <div className="text-xs font-bold text-muted-foreground bg-muted inline-block px-2 py-1 rounded">
+                   {completedPractical}/{practicalChecklistData.length} Completed
+                </div>
               </div>
               <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold min-w-[160px] shadow-lg shadow-secondary/20">
                 <Link href="/learning/practical">View Tasks</Link>
@@ -69,11 +89,15 @@ export default function DashboardPage() {
           {/* Completion Status */}
           <div className="bg-muted/30 rounded-2xl p-8 border border-border space-y-4">
             <div className="flex justify-between items-end">
-              <h4 className="font-bold text-foreground text-lg">Completion Status</h4>
-              <span className="text-primary font-black text-2xl">25%</span>
+              <h4 className="font-bold text-foreground text-lg">Overall Completion Status</h4>
+              <span className="text-primary font-black text-2xl animate-in fade-in zoom-in duration-500" key={overallProgress}>{overallProgress}%</span>
             </div>
-            <Progress value={25} className="h-4 bg-muted text-primary" />
-            <p className="text-xs text-muted-foreground text-right font-medium">Keep going! You are making great progress.</p>
+            <Progress value={overallProgress} className="h-4 bg-muted text-primary" />
+            <div className="text-right">
+              <p className="text-xs text-muted-foreground font-medium">
+                {completedItems} of {totalItems} tasks completed across all modules.
+              </p>
+            </div>
           </div>
 
         </div>
