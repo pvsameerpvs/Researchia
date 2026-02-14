@@ -54,39 +54,39 @@ export default function PracticalModulePage() {
 
   const CheckItem = ({ item }: { item: ChecklistItem }) => {
     const isLoading = loadingTaskId === item.id;
-
+    
+    // Common container styles for a clean Google-like card look
+    const containerClasses = "flex items-center gap-5 p-5 rounded-xl border transition-all duration-300 group";
+    
     if (item.status === "completed") {
       return (
-        <div className="flex items-center gap-4 p-4 bg-emerald-50/50 rounded-xl border border-emerald-100 transition-all duration-500 animate-in fade-in slide-in-from-bottom-2">
-          <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
-            <CheckCircle2 size={18} />
+        <div className={`${containerClasses} bg-slate-50 border-transparent opacity-80`}>
+          <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0 transition-transform group-hover:scale-110">
+            <CheckCircle2 size={20} strokeWidth={3} />
           </div>
-          <span className="text-lg font-bold text-emerald-900 line-through opacity-60 decoration-emerald-500/30">{item.title}</span>
-          <span className="ml-auto text-xs font-black text-emerald-600 uppercase tracking-widest bg-emerald-100 px-3 py-1 rounded-full">Done</span>
+          <span className="text-lg font-medium text-slate-500 line-through decoration-slate-300">{item.title}</span>
         </div>
       );
     }
 
     if (item.status === "pending") {
       return (
-        <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-red-100 shadow-sm ring-1 ring-red-500/10 transition-all hover:shadow-md">
-          <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center text-red-500 flex-shrink-0 animate-pulse">
-            <XCircle size={18} />
+        <div className={`${containerClasses} bg-white border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300`}>
+          <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 flex-shrink-0 group-hover:text-primary transition-colors">
+            <div className="w-3 h-3 rounded-full border-2 border-current"></div>
           </div>
-          <span className="text-lg font-bold text-foreground">{item.title}</span>
+          <span className="text-lg font-medium text-slate-700">{item.title}</span>
           
           <div className="ml-auto flex items-center gap-3">
-             <span className="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-50 px-2 py-1 rounded hidden sm:inline-block">Pending</span>
              {item.type === 'assignment' && (
                <Button 
                 size="sm" 
-                variant="outline"
-                className="h-8 text-xs font-bold border-red-200 hover:bg-red-50 hover:text-red-600"
+                className="h-9 px-4 rounded-full font-medium text-xs bg-blue-600 hover:bg-blue-700 text-white shadow-none transition-all"
                 onClick={() => handleTaskAction(item.id, "complete")}
                 disabled={isLoading}
                >
-                 {isLoading ? <Loader2 size={14} className="animate-spin mr-2" /> : <CheckCircle2 size={14} className="mr-2" />}
-                 Mark Complete
+                 {isLoading ? <Loader2 size={14} className="animate-spin mr-2" /> : null}
+                 Mark as Done
                </Button>
              )}
           </div>
@@ -96,14 +96,14 @@ export default function PracticalModulePage() {
 
     if (item.status === "action_required") {
       return (
-        <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-amber-100 shadow-lg shadow-amber-500/5 ring-1 ring-amber-500/20">
-          <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-amber-500 flex-shrink-0 animate-pulse">
-             <AlertTriangle size={18} />
+        <div className={`${containerClasses} bg-white border-blue-100 shadow-sm hover:shadow-md hover:border-blue-200 ring-1 ring-blue-50`}>
+          <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0 animate-[pulse_3s_infinite]">
+             <AlertTriangle size={20} />
           </div>
-          <span className="text-lg font-bold text-foreground">{item.title}</span>
+          <span className="text-lg font-medium text-slate-800">{item.title}</span>
            <Button 
             size="sm" 
-            className="ml-auto bg-primary text-white font-bold h-9 text-xs hover:bg-primary/90 transition-all shadow-md shadow-primary/20 hover:scale-105"
+            className="ml-auto h-9 px-5 rounded-full font-medium text-xs bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-200 hover:shadow-xl transition-all hover:-translate-y-0.5"
             onClick={() => handleTaskAction(item.id, "upload")}
             disabled={isLoading}
            >
