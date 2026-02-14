@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button";
 import { 
   Menu, 
   X, 
-  Search, 
-  GraduationCap,
+  Search,
   Bell,
   UserCircle,
   LogOut,

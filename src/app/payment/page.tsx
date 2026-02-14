@@ -85,7 +85,17 @@ function PaymentContent() {
             </div>
 
             {/* Submit Button */}
-            <Button className="w-full h-14 text-lg font-bold bg-secondary hover:bg-secondary/90 text-white shadow-lg shadow-secondary/20 rounded-xl">
+            <Button 
+              onClick={(e) => {
+                const target = e.currentTarget;
+                target.innerText = "Processing...";
+                target.classList.add("opacity-80");
+                setTimeout(() => {
+                  window.location.href = "/learning/dashboard";
+                }, 1000);
+              }}
+              className="w-full h-14 text-lg font-bold bg-secondary hover:bg-secondary/90 text-white shadow-lg shadow-secondary/20 rounded-xl"
+            >
               Complete Purchase {price ? `- $${price}` : ""}
             </Button>
 
