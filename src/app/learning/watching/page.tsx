@@ -118,7 +118,7 @@ export default function WatchingModulePage() {
                   <div className="mt-4 flex items-center gap-4 group/scrubber cursor-pointer">
                      <span className="text-xs font-mono text-white/70">00:00</span>
                      <div className="h-1 bg-white/20 rounded-full flex-grow overflow-hidden relative">
-                       <div className={`h-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.8)] ${isPlaying ? 'w-[15%]' : 'w-0'} transition-all duration-[2000ms]`}></div>
+                       <div className={`h-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.8)] ${isPlaying ? 'w-[15%]' : 'w-0'} transition-all duration-1000`}></div>
                      </div>
                      <span className="text-xs font-mono text-white/70">{currentLesson.duration}</span>
                   </div>
@@ -142,7 +142,7 @@ export default function WatchingModulePage() {
               </h3>
               
               <div className="space-y-3 h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-                {lessons.map((lesson, index) => (
+                {lessons.map((lesson) => (
                   <div 
                     key={lesson.id} 
                     onClick={() => handleLessonClick(lesson)}

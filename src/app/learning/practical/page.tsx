@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, XCircle, ArrowLeft, Upload, ListTodo, AlertTriangle, Loader2 } from "lucide-react";
+import { CheckCircle2, ArrowLeft, Upload, ListTodo, AlertTriangle, Loader2 } from "lucide-react";
 import { practicalChecklistData, type ChecklistItem } from "@/lib/fake-data";
 import { useState, useRef, ChangeEvent } from "react";
 
