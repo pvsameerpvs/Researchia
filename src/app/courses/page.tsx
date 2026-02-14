@@ -23,7 +23,7 @@ export default function CoursesPage() {
     {
       id: 3,
       title: "Level 3",
-      image: "https://images.unsplash.com/photo-1544531320-dadbed29130d?q=80&w=2070&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2070&auto=format&fit=crop",
       link: "/courses/level-3"
     }
   ];
