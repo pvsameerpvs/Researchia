@@ -7,16 +7,16 @@ import { courses } from "@/constants/data";
 
 export default function FeaturedResearch() {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
           <div className="space-y-4 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Active Research Programs</h2>
-            <p className="text-slate-600 max-w-xl font-medium">
+            <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">Active Research Programs</h2>
+            <p className="text-muted-foreground max-w-xl font-medium">
               Select from our elite doctoral curricula, each mentored by leading clinical psychologists and behavioral scientists.
             </p>
           </div>
-          <Button variant="outline" asChild className="rounded-2xl border-slate-200 h-12 px-6 font-bold">
+          <Button variant="outline" asChild className="rounded-2xl border-border bg-card h-12 px-6 font-bold">
             <Link href="/courses">Full Research Directory</Link>
           </Button>
         </div>

@@ -60,7 +60,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
         isScrolled 
-          ? "bg-white/80 backdrop-blur-md py-3 border-slate-200 shadow-sm" 
+          ? "bg-background/95 backdrop-blur-md py-3 border-border shadow-sm" 
           : "bg-transparent py-5 border-transparent"
       )}
     >
@@ -68,10 +68,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-primary p-2 rounded-xl text-white group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
-              <GraduationCap size={24} />
-            </div>
-            <span className="text-xl font-black bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">
+            <span className="text-xl font-black text-black">
               Researchia
             </span>
           </Link>
@@ -85,8 +82,8 @@ export default function Navbar() {
                 className={cn(
                   "text-sm font-bold transition-all hover:text-primary",
                   pathname === item.href 
-                    ? "text-primary" 
-                    : "text-slate-600"
+                    ? "text-primary"
+                    : "text-black hover:text-primary"
                 )}
               >
                 {item.name}
@@ -96,29 +93,29 @@ export default function Navbar() {
 
           {/* Right Action Area */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="text-slate-600">
+            <Button variant="ghost" size="icon" className="text-black hover:text-primary transition-colors">
               <Search size={20} />
             </Button>
             
             {isLoggedIn && (
-              <Button variant="ghost" size="icon" className="text-slate-600 relative">
+              <Button variant="ghost" size="icon" className="text-black hover:text-primary relative transition-colors">
                 <Bell size={20} />
-                <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+                <span className="absolute top-2 right-2 w-2 h-2 bg-destructive rounded-full border-2 border-background"></span>
               </Button>
             )}
 
-            <div className="h-6 w-px bg-slate-200 mx-2"></div>
+            <div className="h-6 w-px mx-2 bg-black/20"></div>
             
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-10 w-10 rounded-full bg-slate-100 p-0 flex items-center justify-center overflow-hidden border border-slate-200 hover:border-primary/50 transition-colors">
-                  <UserCircle className="h-6 w-6 text-slate-500" />
+                <Button variant="ghost" className="relative h-10 w-10 rounded-full p-0 flex items-center justify-center overflow-hidden border transition-colors bg-muted border-border hover:border-primary/50 text-black">
+                  <UserCircle className="h-6 w-6" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-64 rounded-2xl p-2 border-slate-200 shadow-xl">
+              <DropdownMenuContent align="end" className="w-64 rounded-2xl p-2 border-border shadow-xl bg-card">
                 <DropdownMenuLabel className="px-3 py-2">
-                  <div className="text-sm font-bold text-slate-900">Dr. Researcher</div>
-                  <div className="text-xs text-slate-500 font-medium">PhD Scholar</div>
+                  <div className="text-sm font-bold text-foreground">Dr. Researcher</div>
+                  <div className="text-xs text-muted-foreground font-medium">PhD Scholar</div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 
@@ -154,11 +151,11 @@ export default function Navbar() {
             </DropdownMenu>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center gap-4">
             <Button
               variant="ghost"
               size="icon"
+              className="text-black"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -169,7 +166,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 p-4 shadow-xl animate-in slide-in-from-top-4 duration-300">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-4 shadow-xl animate-in slide-in-from-top-4 duration-300">
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
               <Link
@@ -180,13 +177,13 @@ export default function Navbar() {
                   "p-3 rounded-lg text-base font-bold transition-colors",
                   pathname === item.href 
                     ? "bg-primary/10 text-primary" 
-                    : "text-slate-600 hover:bg-slate-50"
+                    : "text-muted-foreground hover:bg-muted"
                 )}
               >
                 {item.name}
               </Link>
             ))}
-            <hr className="border-slate-100" />
+            <hr className="border-border" />
             <div className="flex flex-col gap-2 pt-2">
               {isLoggedIn ? (
                 <>
@@ -198,7 +195,7 @@ export default function Navbar() {
                   </Button>
                 </>
               ) : (
-                <Button asChild className="justify-start h-12 rounded-xl font-bold bg-slate-900">
+                <Button asChild className="justify-start h-12 rounded-xl font-bold bg-primary text-primary-foreground hover:bg-primary/90">
                   <Link href="/login">Scholarly Login</Link>
                 </Button>
               )}
