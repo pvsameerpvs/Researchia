@@ -28,7 +28,7 @@ import {
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Research Programs", href: "/courses" },
+  { name: "Courses", href: "/courses" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
