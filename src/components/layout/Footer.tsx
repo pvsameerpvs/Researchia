@@ -14,7 +14,7 @@ export default function Footer() {
             <Link href="/" className="inline-block">
               <div className="bg-white p-2 rounded-xl shadow-2xl">
                 <Image 
-                  src="/logo-cbhk.jpeg" 
+                  src="/logo-cbhk.png" 
                   alt="BHK Certification" 
                   width={200} 
                   height={60} 

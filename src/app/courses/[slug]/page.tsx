@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle2, ShieldCheck, Globe, Users, ArrowRight } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Globe, Users } from "lucide-react";
 import { useParams } from "next/navigation";
 
 export default function CourseDetailsPage() {
@@ -139,7 +139,7 @@ export default function CourseDetailsPage() {
           {/* Floating Badge */}
           <div className="absolute bottom-10 left-10 right-10 p-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-[30px] shadow-2xl animate-in fade-in zoom-in duration-1000 delay-500">
             <p className="text-white text-lg font-serif italic">
-              "This level defines the standard for professional inquiry in the modern age."
+              &quot;This level defines the standard for professional inquiry in the modern age.&quot;
             </p>
             <div className="mt-4 flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-accent"></div>

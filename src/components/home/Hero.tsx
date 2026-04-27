@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -25,7 +25,7 @@ export default function Hero() {
           
           <p className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-2xl font-light">
             Our BHK Certification Programs provide professionals with the elite curriculum, 
-            practical insights, and global recognition needed to excel in today's competitive market.
+            practical insights, and global recognition needed to excel in today&apos;s competitive market.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">

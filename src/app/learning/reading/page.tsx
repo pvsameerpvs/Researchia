@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { FileText, Download, ArrowLeft, Eye, CheckCircle2, Loader2, BookOpenText, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { FileText, Download, ArrowLeft, Eye, Loader2, BookOpenText, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { readingMaterialsData, type ReadingMaterial } from "@/lib/fake-data";
 import { useState } from "react";
 
@@ -100,7 +100,7 @@ export default function ReadingModulePage() {
                        {activeMaterial.title}
                      </h2>
                      <p className="text-secondary text-sm leading-relaxed max-w-2xl font-light italic">
-                       "{activeMaterial.description}"
+                       &quot;{activeMaterial.description}&quot;
                      </p>
                    </div>
                    <div className="flex flex-col gap-3">

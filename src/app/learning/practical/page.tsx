@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ArrowLeft, Upload, ListTodo, AlertTriangle, Loader2, Microscope, FileCheck, ClipboardList, Sparkles, BookOpen, MonitorPlay } from "lucide-react";
+import { CheckCircle2, ArrowLeft, Upload, Loader2, ClipboardList, Sparkles, BookOpen, MonitorPlay } from "lucide-react";
 import { practicalChecklistData, type ChecklistItem } from "@/lib/fake-data";
 import { useState } from "react";
 
@@ -107,7 +107,7 @@ export default function PracticalModulePage() {
                       <div className="space-y-2">
                         <h4 className="text-lg font-bold text-primary">Evidence Depository</h4>
                         <p className="text-xs text-muted-text leading-relaxed font-light">
-                          Drag and drop your research logs or select the 'Finalize' button to log your practical inquiry for faculty review.
+                          Drag and drop your research logs or select the &apos;Finalize&apos; button to log your practical inquiry for faculty review.
                         </p>
                       </div>
                    </div>

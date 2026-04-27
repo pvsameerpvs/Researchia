@@ -42,7 +42,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center py-1">
             <div className="relative w-[300px] h-[65px] md:w-[400px] md:h-[80px]">
               <Image 
-                src="/logo-cbhk.jpeg" 
+                src="/logo-cbhk.png" 
                 alt="BHK - Blue Diamond Executive Curriculum" 
                 fill
                 className="object-contain object-left"

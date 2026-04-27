@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, Play, Pause, SkipBack, SkipForward, Headphones, Clock, Sparkles } from "lucide-react";
+import { ArrowLeft, Play, Pause, SkipBack, SkipForward, Headphones, Sparkles } from "lucide-react";
 import { audioLessonsData, AudioLesson } from "@/lib/fake-data";
 import { useState } from "react";
 import Image from "next/image";
