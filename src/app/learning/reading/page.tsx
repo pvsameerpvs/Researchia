@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { FileText, Download, ArrowLeft, Eye, CheckCircle2, Loader2, BookOpenText, Sparkles } from "lucide-react";
+import { FileText, Download, ArrowLeft, Eye, CheckCircle2, Loader2, BookOpenText, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { readingMaterialsData, type ReadingMaterial } from "@/lib/fake-data";
 import { useState } from "react";
 
@@ -12,11 +12,18 @@ export default function ReadingModulePage() {
   const [materials, setMaterials] = useState<ReadingMaterial[]>(readingMaterialsData);
   const [activeId, setActiveId] = useState<string>(materials[0].id);
   const [loadingId, setLoadingId] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const activeMaterial = materials.find(m => m.id === activeId) || materials[0];
   const completedCount = materials.filter(m => m.status === "completed").length;
   const totalCount = materials.length;
   const progressPercentage = Math.round((completedCount / totalCount) * 100);
+
+  // Reset page when switching materials
+  const handleMaterialSelect = (id: string) => {
+    setActiveId(id);
+    setCurrentPage(1);
+  };
 
   const handleAction = (id: string, action: "view" | "download") => {
     setLoadingId(id);
@@ -105,27 +112,90 @@ export default function ReadingModulePage() {
                        {loadingId === activeMaterial.id ? <Loader2 size={18} className="animate-spin mr-2" /> : <Eye size={18} className="mr-2" />}
                        Open Manuscript
                      </Button>
-                     <Button 
-                       variant="outline"
-                       onClick={() => handleAction(activeMaterial.id, "download")}
-                       className="h-12 px-8 rounded-xl border-primary/10 text-primary font-bold hover:bg-primary/5"
-                     >
-                       <Download size={16} className="mr-2 text-accent" />
-                       Save Archive
-                     </Button>
+                     <div className="flex gap-2">
+                       <Button 
+                         variant="outline"
+                         onClick={() => {
+                           const currentIndex = materials.findIndex(m => m.id === activeId);
+                           if (currentIndex > 0) setActiveId(materials[currentIndex - 1].id);
+                         }}
+                         disabled={materials.findIndex(m => m.id === activeId) === 0}
+                         className="flex-1 h-12 rounded-xl border-primary/10 text-primary hover:bg-primary/5"
+                       >
+                         Previous
+                       </Button>
+                       <Button 
+                         variant="outline"
+                         onClick={() => {
+                           const currentIndex = materials.findIndex(m => m.id === activeId);
+                           if (currentIndex < materials.length - 1) setActiveId(materials[currentIndex + 1].id);
+                         }}
+                         disabled={materials.findIndex(m => m.id === activeId) === materials.length - 1}
+                         className="flex-1 h-12 rounded-xl border-primary/10 text-primary hover:bg-primary/5"
+                       >
+                         Next
+                       </Button>
+                     </div>
                    </div>
                 </div>
 
-                <div className="flex-grow flex items-center justify-center bg-primary/[0.01] rounded-[32px] border-2 border-dashed border-primary/5 p-12">
-                   <div className="text-center space-y-6 max-w-sm">
-                      <div className="w-24 h-24 rounded-full bg-primary/5 flex items-center justify-center text-primary/20 mx-auto">
-                        <BookOpenText size={48} />
-                      </div>
-                      <div className="space-y-2">
-                        <h4 className="text-lg font-bold text-primary">Interactive Preview</h4>
-                        <p className="text-xs text-muted-text leading-relaxed font-light">
-                          Select a manuscript from the archive to begin your investigation. Complete the reading to earn institutional milestones.
-                        </p>
+                <div className="flex-grow bg-slate-50/50 rounded-[32px] border border-primary/5 overflow-hidden flex flex-col shadow-inner">
+                   <div className="bg-white/80 backdrop-blur-sm border-b border-primary/5 px-8 py-4 flex justify-between items-center">
+                     <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-primary/40">
+                       <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+                       Live Institutional Viewer
+                     </div>
+                     <div className="flex items-center gap-4">
+                       <span className="text-[10px] font-bold text-muted-text">Zoom: 100%</span>
+                       <div className="h-4 w-px bg-primary/10"></div>
+                       <div className="flex items-center gap-2">
+                         <button 
+                           onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                           disabled={currentPage === 1}
+                           className="text-primary hover:text-accent disabled:text-primary/20 transition-colors"
+                         >
+                           <ChevronLeft size={16} />
+                         </button>
+                         <span className="text-[10px] font-bold text-muted-text w-16 text-center">Page: {currentPage} / {activeMaterial.pages}</span>
+                         <button 
+                           onClick={() => setCurrentPage(prev => Math.min(activeMaterial.pages, prev + 1))}
+                           disabled={currentPage === activeMaterial.pages}
+                           className="text-primary hover:text-accent disabled:text-primary/20 transition-colors"
+                         >
+                           <ChevronRight size={16} />
+                         </button>
+                       </div>
+                     </div>
+                   </div>
+
+                   <div className="flex-grow overflow-y-auto p-12 space-y-10 custom-scrollbar bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]">
+                      {/* Manuscript Content Mockup */}
+                      <div className="max-w-2xl mx-auto space-y-12 bg-white p-16 shadow-2xl border border-primary/5 min-h-[1000px] relative">
+                        {/* Institutional Watermark */}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
+                          <BookOpenText size={400} className="text-primary rotate-12" />
+                        </div>
+
+                        <div className="text-center space-y-4 border-b border-primary/5 pb-10 relative z-10">
+                          <div className="text-[10px] font-black text-accent uppercase tracking-[0.3em]">Institutional Archive No. {activeMaterial.id.toUpperCase()}</div>
+                          <h3 className="text-3xl font-serif text-primary leading-tight px-4">{activeMaterial.title}</h3>
+                          <div className="text-xs text-muted-text italic">BHK Behavioral Authority • Page {currentPage} of {activeMaterial.pages}</div>
+                        </div>
+
+                        <div className="space-y-8 relative z-10">
+                          <div className="space-y-4">
+                            <h4 className="text-lg font-serif font-bold text-primary">Chapter {currentPage}: Behavioral Foundations</h4>
+                            <p className="text-sm text-secondary leading-relaxed text-justify first-letter:text-4xl first-letter:font-serif first-letter:mr-2 first-letter:float-left first-letter:text-primary">
+                              {activeMaterial.description} This investigation aims to bridge the gap between theoretical behavioral frameworks and clinical observation. 
+                              Through rigorous data synthesis and longitudinal study patterns, we establish a new baseline for professional certification standards. 
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="pt-20 text-center">
+                          <div className="w-12 h-1 bg-primary/10 mx-auto rounded-full mb-6"></div>
+                          <p className="text-[10px] font-bold text-primary/30 uppercase tracking-[0.4em]">End of Page {currentPage} Preview</p>
+                        </div>
                       </div>
                    </div>
                 </div>
@@ -142,7 +212,7 @@ export default function ReadingModulePage() {
                 {materials.map((item) => (
                   <div 
                     key={item.id}
-                    onClick={() => setActiveId(item.id)}
+                    onClick={() => handleMaterialSelect(item.id)}
                     className={`group relative p-5 rounded-[32px] border transition-all duration-500 cursor-pointer overflow-hidden ${
                       activeId === item.id 
                         ? 'bg-primary border-primary shadow-2xl shadow-primary/20 -translate-y-1' 

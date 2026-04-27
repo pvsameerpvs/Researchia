@@ -106,22 +106,36 @@ export default function ListeningModulePage() {
 
               {/* Controls & Description */}
               <div className="bg-white rounded-[40px] p-10 border border-primary/5 shadow-2xl shadow-primary/[0.03] space-y-8">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div className="flex items-center gap-6">
-                    <Button variant="outline" size="icon" className="w-14 h-14 rounded-2xl border-primary/10 text-primary hover:bg-primary/5">
-                      <SkipBack size={24} />
-                    </Button>
-                    <Button onClick={togglePlay} className="w-20 h-20 rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20">
-                      {isPlaying ? <Pause size={32} fill="currentColor" /> : <Play size={32} fill="currentColor" className="ml-1" />}
-                    </Button>
-                    <Button variant="outline" size="icon" className="w-14 h-14 rounded-2xl border-primary/10 text-primary hover:bg-primary/5">
-                      <SkipForward size={24} />
-                    </Button>
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="flex items-center gap-6">
+                      <Button variant="outline" size="icon" className="w-14 h-14 rounded-2xl border-primary/10 text-primary hover:bg-primary/5" onClick={() => {
+                        const currentIndex = audioLessonsData.findIndex(a => a.id === activeAudio.id);
+                        if (currentIndex > 0) setActiveAudio(audioLessonsData[currentIndex - 1]);
+                      }} disabled={audioLessonsData.findIndex(a => a.id === activeAudio.id) === 0}>
+                        <SkipBack size={24} />
+                      </Button>
+                      <Button onClick={togglePlay} className="w-20 h-20 rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20">
+                        {isPlaying ? <Pause size={32} fill="currentColor" /> : <Play size={32} fill="currentColor" className="ml-1" />}
+                      </Button>
+                      <Button variant="outline" size="icon" className="w-14 h-14 rounded-2xl border-primary/10 text-primary hover:bg-primary/5" onClick={() => {
+                        const currentIndex = audioLessonsData.findIndex(a => a.id === activeAudio.id);
+                        if (currentIndex < audioLessonsData.length - 1) setActiveAudio(audioLessonsData[currentIndex + 1]);
+                      }} disabled={audioLessonsData.findIndex(a => a.id === activeAudio.id) === audioLessonsData.length - 1}>
+                        <SkipForward size={24} />
+                      </Button>
+                    </div>
+                    <div className="flex gap-4">
+                      <Button className="h-14 px-10 rounded-2xl bg-accent hover:bg-accent/90 text-accent-foreground font-bold shadow-lg shadow-accent/10">
+                        Log Reflection Notes
+                      </Button>
+                      <Button variant="outline" className="h-14 px-8 rounded-2xl border-primary/10 text-primary font-bold hover:bg-primary/5" onClick={() => {
+                        const currentIndex = audioLessonsData.findIndex(a => a.id === activeAudio.id);
+                        if (currentIndex < audioLessonsData.length - 1) setActiveAudio(audioLessonsData[currentIndex + 1]);
+                      }} disabled={audioLessonsData.findIndex(a => a.id === activeAudio.id) === audioLessonsData.length - 1}>
+                        Next Session
+                      </Button>
+                    </div>
                   </div>
-                  <Button className="h-14 px-10 rounded-2xl bg-accent hover:bg-accent/90 text-accent-foreground font-bold shadow-lg shadow-accent/10">
-                    Log Reflection Notes
-                  </Button>
-                </div>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest">

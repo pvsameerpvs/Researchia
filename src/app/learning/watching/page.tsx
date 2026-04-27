@@ -119,6 +119,18 @@ export default function WatchingModulePage() {
                         Log Presentation as Viewed
                       </Button>
                     )}
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      onClick={() => {
+                        const currentIndex = lessons.findIndex(l => l.id === currentLessonId);
+                        if (currentIndex < lessons.length - 1) setCurrentLessonId(lessons[currentIndex + 1].id);
+                      }}
+                      disabled={lessons.findIndex(l => l.id === currentLessonId) === lessons.length - 1}
+                      className="h-10 px-6 rounded-xl border-white/20 bg-white/10 text-white hover:bg-white/20 font-bold text-xs"
+                    >
+                      Next Presentation
+                    </Button>
                   </div>
                   
                   {/* Progress Scrubber Mock */}
