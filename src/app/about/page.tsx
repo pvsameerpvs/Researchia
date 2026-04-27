@@ -1,119 +1,158 @@
+"use client";
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { CheckCircle2, Microscope, BrainCircuit, Users2 } from "lucide-react";
+import Image from "next/image";
+import { CheckCircle2, Award, BookOpen, Target, Globe } from "lucide-react";
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
       
-      {/* Header */}
-      <section className="pt-32 pb-16 bg-slate-50 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-3xl rounded-full"></div>
-        <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">The Researchia Mission</h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto font-medium">
-            Advancing human understanding through rigorous doctoral-level research in behavioral sciences and psychological dynamics.
+      {/* Hero Section with Banner */}
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/about-banner.jpg"
+            alt="About BHK Certification"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-primary/80 backdrop-blur-[2px]"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-bold uppercase tracking-widest mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            About BHK Certification
+          </div>
+          <h1 className="text-5xl md:text-8xl font-serif font-medium text-white mb-6 tracking-tight leading-tight">
+            Our Commitment to <br />
+            <span className="italic">Institutional Excellence</span>
+          </h1>
+          <p className="text-white/80 text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed">
+            Advancing the frontiers of professional standards through rigorous research and global certification.
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-24">
+      {/* Mission & Vision - Split Layout */}
+      <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="relative">
-              <div className="aspect-square bg-primary/10 rounded-[80px] absolute -top-12 -left-12 w-full h-full -z-10 rotate-6 scale-105"></div>
-              <div className="aspect-square bg-emerald-500/10 rounded-[80px] absolute -bottom-12 -right-12 w-full h-full -z-10 -rotate-6 scale-105"></div>
-              <div className="rounded-[40px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] bg-white border-8 border-white aspect-square flex items-center justify-center p-16">
-                <div className="text-center space-y-8">
-                  <div className="inline-block p-6 bg-primary/10 text-primary rounded-[32px] shadow-lg shadow-primary/5">
-                    <Microscope size={56} />
+            <div className="space-y-10">
+              <div className="space-y-6">
+                <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary leading-tight">
+                  Redefining the Standards <br />
+                  of Professional Mastery
+                </h2>
+                <div className="h-1.5 w-24 bg-accent"></div>
+              </div>
+              
+              <p className="text-secondary text-lg md:text-xl leading-relaxed font-light">
+                BHK Certification was established as a sovereign academic body dedicated to one goal: providing the most advanced infrastructure for professional development. We believe that global progress requires a deep, data-driven understanding of excellence.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
+                    <Target size={24} />
                   </div>
-                  <h3 className="text-3xl font-black text-slate-900">Empirical Research Excellence</h3>
-                  <p className="text-slate-500 font-medium leading-relaxed">
-                    Collaborating with over 12,000 PhD scholars globally to decode the complexities of human behavioral patterns.
+                  <h4 className="text-lg font-bold text-primary">Our Mission</h4>
+                  <p className="text-muted-text text-sm leading-relaxed">
+                    To empower institutions with the tools and knowledge needed to achieve sustainable peak performance.
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
+                    <Globe size={24} />
+                  </div>
+                  <h4 className="text-lg font-bold text-primary">Global Vision</h4>
+                  <p className="text-muted-text text-sm leading-relaxed">
+                    A world where every professional milestone is backed by rigorous, peer-reviewed research.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-10">
-              <h2 className="text-4xl font-black text-slate-900 tracking-tight">Redefining Behavioral Inquiry</h2>
-              <p className="text-slate-600 leading-relaxed text-lg font-medium">
-                Researchia was established as a sovereign academic institution dedicated to one goal: providing the most advanced infrastructure for behavioral research. We believe that solving global systemic challenges requires a deep, data-driven understanding of human action, reaction, and interaction.
-              </p>
-              
-              <div className="grid grid-cols-1 gap-6">
-                {[
-                  "PhD-led curriculum developed by leading clinical psychologists",
-                  "Structured longitudinal data analysis and neural mapping",
-                  "Doctoral-level certification recognized by global academic bodies",
-                  "Exclusive access to peer-reviewed research forums and forums"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-4 p-4 rounded-3xl bg-slate-50/50 border border-slate-100 hover:border-primary/20 transition-all">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 size={14} />
-                    </div>
-                    <span className="text-slate-700 font-bold text-sm tracking-tight">{item}</span>
-                  </div>
-                ))}
+            <div className="relative">
+              <div className="aspect-[4/5] rounded-[40px] overflow-hidden shadow-2xl relative z-10">
+                <Image
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+                  alt="Modern Office"
+                  fill
+                  className="object-cover"
+                />
               </div>
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+              <div className="absolute -top-10 -left-10 w-48 h-48 border-[20px] border-accent/10 rounded-full -z-10"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Modes of Learning */}
-      <section className="py-24 bg-slate-50 relative overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="text-center mb-20 space-y-4">
-            <h2 className="text-4xl font-black text-slate-900 tracking-tight">Research Methodology</h2>
-            <p className="text-slate-500 max-w-2xl mx-auto font-medium text-lg">
-              We leverage modern technology and traditional academic rigor to facilitate groundbreaking discoveries.
+      {/* Core Values / Impact */}
+      <section className="py-24 md:py-32 bg-light-bg">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+            <h2 className="text-4xl md:text-6xl font-serif font-medium text-primary">The Pillars of Our Authority</h2>
+            <p className="text-secondary text-lg font-light">
+              Our methodology combines modern technological precision with traditional academic rigor.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="bg-white p-12 rounded-[48px] shadow-xl shadow-slate-200/50 border border-slate-100 hover:translate-y-[-8px] transition-all duration-500 group">
-              <div className="w-20 h-20 bg-blue-50 text-blue-600 rounded-[28px] flex items-center justify-center mb-10 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-lg shadow-blue-100/50">
-                <BrainCircuit size={40} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                icon: BookOpen,
+                title: "Research-Led Curriculum",
+                desc: "Every module is developed by leading clinical experts and organizational psychologists."
+              },
+              {
+                icon: Award,
+                title: "Global Recognition",
+                desc: "Our certifications are validated by the Global Research Authority and academic partners."
+              },
+              {
+                icon: CheckCircle2,
+                title: "Empirical Standards",
+                desc: "We leverage longitudinal data sets to ensure all training results in measurable impact."
+              }
+            ].map((value, i) => (
+              <div 
+                key={i} 
+                className="bg-white p-12 rounded-[40px] shadow-xl shadow-primary/5 border border-border group hover:border-accent/30 transition-all duration-500"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-primary/5 text-primary flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                  <value.icon size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-4">{value.title}</h3>
+                <p className="text-muted-text leading-relaxed font-light">
+                  {value.desc}
+                </p>
               </div>
-              <h3 className="text-2xl font-black text-slate-900 mb-6">Virtual Lab Analytics</h3>
-              <p className="text-slate-500 mb-8 leading-[1.8] font-medium">
-                Engage with interactive neuro-scans, behavioral data sets, and simulated social environments from anywhere in the world. Our digital infrastructure is designed for high-throughput scholarly research.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3 text-sm font-bold text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  Real-time algorithmic behavior modeling
-                </li>
-                <li className="flex items-center gap-3 text-sm font-bold text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  Asynchronous doctorate lecture series
-                </li>
-              </ul>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-white p-12 rounded-[48px] shadow-xl shadow-slate-200/50 border border-slate-100 hover:translate-y-[-8px] transition-all duration-500 group">
-              <div className="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-[28px] flex items-center justify-center mb-10 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-500 shadow-lg shadow-emerald-100/50">
-                <Users2 size={40} />
+      {/* Stats Section */}
+      <section className="py-20 bg-primary text-white overflow-hidden relative">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+            {[
+              { label: "Scholars Certified", value: "12,000+" },
+              { label: "Partner Institutions", value: "450+" },
+              { label: "Research Publications", value: "1,200+" },
+              { label: "Countries Reached", value: "85+" }
+            ].map((stat, i) => (
+              <div key={i} className="space-y-2">
+                <div className="text-4xl md:text-6xl font-serif italic text-accent font-medium">{stat.value}</div>
+                <div className="text-sm md:text-base font-bold uppercase tracking-widest text-white/60">{stat.label}</div>
               </div>
-              <h3 className="text-2xl font-black text-slate-900 mb-6">Clinical Residency</h3>
-              <p className="text-slate-500 mb-8 leading-[1.8] font-medium">
-                Collaborate in person at our physical research centers. Participate in live clinical trials, observational studies, and interdisciplinary symposiums with the world&apos;s leading behavioral scientists.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3 text-sm font-bold text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                  Hands-on laboratory trial management
-                </li>
-                <li className="flex items-center gap-3 text-sm font-bold text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                  Interdisciplinary networking & publication
-                </li>
-              </ul>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -122,3 +161,4 @@ export default function AboutPage() {
     </main>
   );
 }
+
