@@ -114,3 +114,35 @@ export const videoLessonsData: VideoLesson[] = [
     thumbnail: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1000&auto=format&fit=crop"
   }
 ];
+
+export interface AudioLesson {
+  id: string;
+  title: string;
+  duration: string;
+  status: "completed" | "pending" | "listening";
+  thumbnail: string;
+}
+
+export const audioLessonsData: AudioLesson[] = [
+  {
+    id: "audio-1",
+    title: "Session 1: Cognitive Behavioral Foundations",
+    duration: "18:45",
+    status: "listening",
+    thumbnail: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1000&auto=format&fit=crop"
+  },
+  {
+    id: "audio-2",
+    title: "Session 2: Psychological Interviewing Techniques",
+    duration: "24:12",
+    status: "pending",
+    thumbnail: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1000&auto=format&fit=crop"
+  },
+  {
+    id: "audio-3",
+    title: "Session 3: Ethics in Human Observation",
+    duration: "15:30",
+    status: "pending",
+    thumbnail: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1000&auto=format&fit=crop"
+  }
+];
