@@ -15,7 +15,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/about-banner.jpg"
-            alt="About BHK Certification"
+            alt="About CBHK Certification"
             fill
             className="object-cover"
             priority
@@ -25,7 +25,7 @@ export default function AboutPage() {
         
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-bold uppercase tracking-widest mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            About BHK Certification
+            About CBHK Certification
           </div>
           <h1 className="text-5xl md:text-8xl font-serif font-medium text-white mb-6 tracking-tight leading-tight">
             Our Commitment to <br />
@@ -51,7 +51,7 @@ export default function AboutPage() {
               </div>
               
               <p className="text-secondary text-lg md:text-xl leading-relaxed font-light">
-                BHK Certification was established as a sovereign academic body dedicated to one goal: providing the most advanced infrastructure for professional development. We believe that global progress requires a deep, data-driven understanding of excellence.
+                CBHK Certification was established as a sovereign academic body dedicated to one goal: providing the most advanced infrastructure for professional development. We believe that global progress requires a deep, data-driven understanding of excellence.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">

@@ -29,7 +29,7 @@ export default function CoursesPage() {
       title: "Global Authority",
       subtitle: "Level 03",
       image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2070&auto=format&fit=crop",
-      desc: "The pinnacle of BHK authority and global research.",
+      desc: "The pinnacle of CBHK authority and global research.",
       icon: Globe
     }
   ];
@@ -44,7 +44,7 @@ export default function CoursesPage() {
           <div className="space-y-4">
             <h1 className="text-5xl md:text-6xl font-bold text-[#111] tracking-tight leading-tight">
               Certification Made Simple <br />
-              with BHK Authority
+              with CBHK Authority
             </h1>
           </div>
 

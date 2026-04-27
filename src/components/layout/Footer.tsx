@@ -15,7 +15,7 @@ export default function Footer() {
               <div className="bg-white p-2 rounded-xl shadow-2xl">
                 <Image 
                   src="/logo-cbhk.png" 
-                  alt="BHK Certification" 
+                  alt="CBHK Certification" 
                   width={200} 
                   height={60} 
                   className="object-contain h-10 md:h-12 w-auto"
@@ -52,7 +52,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-white/40 text-sm font-medium">
-            <p>© {new Date().getFullYear()} BHK Certification. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} CBHK Certification. All rights reserved.</p>
             <div className="flex gap-6">
               <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
               <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

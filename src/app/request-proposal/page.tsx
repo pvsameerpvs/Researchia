@@ -107,7 +107,7 @@ export default function RequestProposalPage() {
                   <div className="space-y-4">
                     <h3 className="text-3xl font-serif italic">Submission Logged</h3>
                     <p className="text-white/60 text-lg font-light leading-relaxed">
-                      Your institutional inquiry has been transmitted to the BHK Certification Board. A senior analyst will respond within 48 business hours.
+                      Your institutional inquiry has been transmitted to the CBHK Certification Board. A senior analyst will respond within 48 business hours.
                     </p>
                   </div>
                   <Button 
@@ -178,7 +178,7 @@ export default function RequestProposalPage() {
                     </Button>
 
                     <p className="text-center text-[9px] font-bold text-muted-text uppercase tracking-widest">
-                      BHK Authority • Data Encryption Enabled • ISO 27001 Compliant
+                      CBHK Authority • Data Encryption Enabled • ISO 27001 Compliant
                     </p>
                   </form>
                 </div>

@@ -45,7 +45,7 @@ export default function Navbar() {
             <div className="relative w-[280px] h-[60px] md:w-[320px] md:h-[70px]">
               <Image 
                 src="/logo-cbhk.png" 
-                alt="BHK - Blue Diamond Executive Curriculum" 
+                alt="CBHK - Blue Diamond Executive Curriculum" 
                 fill
                 className="object-contain object-left"
                 priority

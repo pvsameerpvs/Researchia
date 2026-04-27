@@ -179,7 +179,7 @@ export default function ReadingModulePage() {
                         <div className="text-center space-y-4 border-b border-primary/5 pb-10 relative z-10">
                           <div className="text-[10px] font-black text-accent uppercase tracking-[0.3em]">Institutional Archive No. {activeMaterial.id.toUpperCase()}</div>
                           <h3 className="text-3xl font-serif text-primary leading-tight px-4">{activeMaterial.title}</h3>
-                          <div className="text-xs text-muted-text italic">BHK Behavioral Authority • Page {currentPage} of {activeMaterial.pages}</div>
+                          <div className="text-xs text-muted-text italic">CBHK Behavioral Authority • Page {currentPage} of {activeMaterial.pages}</div>
                         </div>
 
                         <div className="space-y-8 relative z-10">
@@ -260,7 +260,7 @@ export default function ReadingModulePage() {
           </div>
 
           <div className="flex justify-between items-center pt-8 border-t border-primary/5">
-            <span className="text-[10px] font-black text-muted-text uppercase tracking-widest italic">© 2026 BHK Sovereign Authority • Certification Division</span>
+            <span className="text-[10px] font-black text-muted-text uppercase tracking-widest italic">© 2026 CBHK Sovereign Authority • Certification Division</span>
           </div>
 
         </div>

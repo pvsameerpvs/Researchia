@@ -19,12 +19,12 @@ export default function Hero() {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-3xl space-y-6 md:space-y-8 animate-in fade-in slide-in-from-left-12 duration-1000">
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-serif font-medium text-white leading-[1.1] tracking-tight">
-            About BHK <br className="hidden md:block" />
+            About CBHK <br className="hidden md:block" />
             Certification
           </h1>
           
           <p className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-2xl font-light">
-            Our BHK Certification Programs provide professionals with the elite curriculum, 
+            Our CBHK Certification Programs provide professionals with the elite curriculum, 
             practical insights, and global recognition needed to excel in today&apos;s competitive market.
           </p>
           

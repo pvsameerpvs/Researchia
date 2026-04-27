@@ -206,7 +206,7 @@ export default function DashboardPage() {
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-[#fdf8ee] text-[#d4a24c] text-[10px] font-black uppercase tracking-[0.2em] border border-[#f5ead2]">
                   <ShieldCheck size={14} />
-                  BHK Tier 01 Active
+                  CBHK Tier 01 Active
                 </div>
                 <div className="space-y-1">
                   <h2 className="text-4xl md:text-5xl font-serif text-[#1F3A5F]">

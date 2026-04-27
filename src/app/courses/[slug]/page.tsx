@@ -18,7 +18,7 @@ export default function CourseDetailsPage() {
       subtitle: "Level 01 Certification",
       price: 99,
       image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070&auto=format&fit=crop",
-      desc: "Perfect for those entering the professional landscape. This foundational course covers the core principles of BHK standards and behavioral research."
+      desc: "Perfect for those entering the professional landscape. This foundational course covers the core principles of CBHK standards and behavioral research."
     },
     "level-2": {
       title: "Advanced Mastery",
@@ -32,7 +32,7 @@ export default function CourseDetailsPage() {
       subtitle: "Level 03 Certification",
       price: 299,
       image: "https://images.unsplash.com/photo-1544531320-dadbed29130d?q=80&w=2070&auto=format&fit=crop",
-      desc: "The pinnacle of BHK certification. For leaders who define the standards, manage global teams, and drive large-scale research impact."
+      desc: "The pinnacle of CBHK certification. For leaders who define the standards, manage global teams, and drive large-scale research impact."
     }
   };
 
@@ -98,7 +98,7 @@ export default function CourseDetailsPage() {
                 </Button>
               </div>
               <p className="text-center text-[9px] font-bold text-muted-text uppercase tracking-widest">
-                Secure Institutional Payment via BHK Authority
+                Secure Institutional Payment via CBHK Authority
               </p>
             </div>
 
@@ -145,7 +145,7 @@ export default function CourseDetailsPage() {
               <div className="w-10 h-10 rounded-full bg-accent"></div>
               <div>
                 <div className="text-white font-bold text-sm">Marcus Thorne</div>
-                <div className="text-white/60 text-[10px] uppercase tracking-widest">BHK Chancellor</div>
+                <div className="text-white/60 text-[10px] uppercase tracking-widest">CBHK Chancellor</div>
               </div>
             </div>
           </div>
