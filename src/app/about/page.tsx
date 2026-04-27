@@ -79,7 +79,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-[40px] overflow-hidden shadow-2xl relative z-10">
                 <Image
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+                  src="/winner-about.jpg"
                   alt="Modern Office"
                   fill
                   className="object-cover"
