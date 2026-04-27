@@ -45,8 +45,16 @@ export default function CTA() {
                   Apply for Candidacy
                 </Link>
               </Button>
-              
-             
+              <Button 
+                asChild
+                size="lg" 
+                variant="outline"
+                className="border-white/30 text-white hover:bg-white/10 h-16 md:h-20 px-10 md:px-16 rounded-none font-bold text-lg md:text-xl transition-all"
+              >
+                <Link href="/request-proposal">
+                  Institutional Proposal
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
