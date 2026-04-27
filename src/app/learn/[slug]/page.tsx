@@ -42,10 +42,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { courses, courseDetails } from "@/constants/data";
 import { Lesson, Module } from "@/types/course";
 import { cn } from "@/lib/utils";
+import { useParams } from "next/navigation";
 
-export default function CourseLearningPage({ params }: { params: { slug: string } }) {
-  const course = courses.find(c => c.slug === params.slug) || courses[0];
-  const details = courseDetails[params.slug as keyof typeof courseDetails] || courseDetails["advanced-human-behavior"];
+export default function CourseLearningPage() {
+  const params = useParams();
+  const slug = typeof params.slug === "string" ? params.slug : "";
+  const course = courses.find(c => c.slug === slug) || courses[0];
+  const details = courseDetails[slug as keyof typeof courseDetails] || courseDetails["advanced-human-behavior"];
   
   // States
   const [activeLesson, setActiveLesson] = useState<Lesson>(details.modules[0].lessons[0]);
