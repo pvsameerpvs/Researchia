@@ -32,15 +32,17 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background border-b border-border h-[var(--navbar-height)] flex items-center",
-        isScrolled ? "shadow-md" : ""
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 h-[var(--navbar-height)] flex items-center",
+        isScrolled 
+          ? "bg-white/80 backdrop-blur-xl border-b border-black/5 shadow-sm" 
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 h-full">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <Link href="/" className="flex items-center py-1">
-            <div className="relative w-[300px] h-[65px] md:w-[400px] md:h-[80px]">
+          <Link href="/" className="flex items-center py-1 transition-opacity hover:opacity-80">
+            <div className="relative w-[280px] h-[60px] md:w-[320px] md:h-[70px]">
               <Image 
                 src="/logo-cbhk.png" 
                 alt="BHK - Blue Diamond Executive Curriculum" 
@@ -52,30 +54,34 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-8">
             <div className="flex items-center gap-8">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-[15px] font-bold transition-colors uppercase tracking-tight",
+                    "text-[14px] font-bold transition-all uppercase tracking-wider relative group",
                     pathname === item.href 
                       ? "text-primary"
-                      : "text-muted-foreground hover:text-primary"
+                      : "text-[#555] hover:text-primary"
                   )}
                 >
                   {item.name}
+                  <span className={cn(
+                    "absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full",
+                    pathname === item.href ? "w-full" : ""
+                  )}></span>
                 </Link>
               ))}
             </div>
             
             <Button 
               asChild
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-6 text-sm font-bold uppercase tracking-wider shadow-lg transition-transform hover:scale-105"
+              className="bg-[#111] hover:bg-black text-white rounded-full px-8 py-6 text-xs font-black uppercase tracking-widest shadow-xl transition-all hover:scale-105 active:scale-95"
             >
               <Link href="/request-proposal">
-                Request a Proposal
+                Get Started
               </Link>
             </Button>
           </div>
