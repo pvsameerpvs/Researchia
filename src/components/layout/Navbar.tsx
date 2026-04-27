@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background border-b border-border",
         isScrolled ? "py-2 shadow-sm" : "py-3"
       )}
     >
@@ -61,8 +61,8 @@ export default function Navbar() {
                   className={cn(
                     "text-[15px] font-bold transition-colors uppercase tracking-tight",
                     pathname === item.href 
-                      ? "text-[#002147]"
-                      : "text-gray-600 hover:text-[#002147]"
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
                   )}
                 >
                   {item.name}
@@ -72,7 +72,7 @@ export default function Navbar() {
             
             <Button 
               asChild
-              className="bg-[#002147] hover:bg-[#003166] text-white rounded-none px-8 py-6 text-sm font-bold uppercase tracking-wider"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-6 text-sm font-bold uppercase tracking-wider shadow-lg transition-transform hover:scale-105"
             >
               <Link href="/request-proposal">
                 Request a Proposal
@@ -85,7 +85,7 @@ export default function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-[#002147]"
+              className="text-primary"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -96,7 +96,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 p-6 shadow-2xl animate-in slide-in-from-top-4 duration-300">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 shadow-2xl animate-in slide-in-from-top-4 duration-300">
           <div className="flex flex-col gap-6">
             {navItems.map((item) => (
               <Link
@@ -106,8 +106,8 @@ export default function Navbar() {
                 className={cn(
                   "text-lg font-bold transition-colors uppercase",
                   pathname === item.href 
-                    ? "text-[#002147]" 
-                    : "text-gray-500 hover:text-[#002147]"
+                    ? "text-primary" 
+                    : "text-muted-foreground hover:text-primary"
                 )}
               >
                 {item.name}
@@ -115,7 +115,7 @@ export default function Navbar() {
             ))}
             <Button 
               asChild
-              className="bg-[#002147] hover:bg-[#003166] text-white rounded-none w-full py-6 font-bold uppercase"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none w-full py-6 font-bold uppercase"
             >
               <Link href="/request-proposal" onClick={() => setMobileMenuOpen(false)}>
                 Request a Proposal

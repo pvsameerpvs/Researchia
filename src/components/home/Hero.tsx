@@ -9,9 +9,9 @@ export default function Hero() {
   return (
     <section className="relative w-full pt-16 pb-24 lg:pt-32 lg:pb-40 overflow-hidden bg-background">
       {/* Grid Pattern Background */}
-      <div className="absolute inset-0 z-0 opacity-[0.03]" 
+      <div className="absolute inset-0 z-0 opacity-[0.05]" 
            style={{
-             backgroundImage: `linear-gradient(to right, #5C4033 1px, transparent 1px), linear-gradient(to bottom, #5C4033 1px, transparent 1px)`,
+             backgroundImage: `linear-gradient(to right, #1F3A5F 1px, transparent 1px), linear-gradient(to bottom, #1F3A5F 1px, transparent 1px)`,
              backgroundSize: '40px 40px'
            }}>
       </div>
@@ -25,10 +25,10 @@ export default function Hero() {
               #1 LMS FOR DOCTORAL SUCCESS
             </h4>
             
-            <h1 className="text-5xl md:text-7xl font-black text-foreground leading-[1.1] tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-black text-primary leading-[1.1] tracking-tight">
               Flexible & Scalable.<br />
               Your Platform for <br />
-              <span className="text-primary">High Value Research.</span>
+              <span className="text-accent">High Value Research.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -36,7 +36,7 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-2">
-              <Button asChild size="lg" className="h-16 px-8 text-lg font-bold rounded-lg bg-foreground text-background hover:bg-foreground/90 shadow-xl transition-all hover:translate-y-[-2px]">
+              <Button asChild size="lg" className="h-16 px-8 text-lg font-bold rounded-none bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl transition-all hover:translate-y-[-2px]">
                 <Link href="/signup">
                   Start Free Trial
                   <ArrowUpRight className="ml-2" size={24} />
@@ -47,7 +47,7 @@ export default function Hero() {
                 <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                   <Play size={24} fill="currentColor" className="ml-1" />
                 </div>
-                <span className="text-foreground font-bold text-lg underline decoration-2 decoration-transparent group-hover:decoration-secondary transition-all">
+                <span className="text-primary font-bold text-lg underline decoration-2 decoration-transparent group-hover:decoration-secondary transition-all">
                   How it Works
                 </span>
               </button>
