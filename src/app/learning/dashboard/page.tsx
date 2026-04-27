@@ -11,8 +11,7 @@ import {
   Headphones, 
   ChevronRight,
   ShieldCheck,
-  Zap,
-  TrendingUp
+  Zap
 } from "lucide-react";
 import { 
   practicalChecklistData, 
@@ -20,7 +19,7 @@ import {
   videoLessonsData, 
   audioLessonsData 
 } from "@/lib/fake-data";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, LineChart, Line, XAxis, YAxis, CartesianGrid, RadialBarChart, RadialBar } from "recharts";
+import { ResponsiveContainer, Tooltip, LineChart, Line, XAxis, YAxis, CartesianGrid, RadialBarChart, RadialBar } from "recharts";
 
 export default function DashboardPage() {
   // Statistics Calculation
@@ -36,15 +35,7 @@ export default function DashboardPage() {
     return { ...module, completed, total, percent };
   });
 
-  const totalItems = stats.reduce((acc, curr) => acc + curr.total, 0);
   const completedItems = stats.reduce((acc, curr) => acc + curr.completed, 0);
-  const overallProgress = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
-
-  // Chart Data
-  const chartData = [
-    { name: "Completed", value: completedItems, color: "#D4A24C" },
-    { name: "Remaining", value: totalItems - completedItems, color: "#f1f1f1" },
-  ];
 
   return (
     <main className="min-h-screen bg-[#FDFDFD] flex flex-col">

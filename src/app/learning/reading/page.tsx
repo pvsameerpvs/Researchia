@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { FileText, Download, ArrowLeft, Eye, Loader2, BookOpenText, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { FileText, ArrowLeft, Eye, Loader2, BookOpenText, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { readingMaterialsData, type ReadingMaterial } from "@/lib/fake-data";
 import { useState } from "react";
 

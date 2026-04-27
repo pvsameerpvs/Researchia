@@ -9,11 +9,8 @@ import {
   ShieldCheck, 
   Send, 
   Building2, 
-  Users, 
   Globe, 
-  FileText, 
   CheckCircle2, 
-  ArrowRight,
   Sparkles,
   ClipboardCheck
 } from "lucide-react";
