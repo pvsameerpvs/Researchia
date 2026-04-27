@@ -32,12 +32,12 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background border-b border-border",
-        isScrolled ? "py-2 shadow-sm" : "py-3"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background border-b border-border h-[var(--navbar-height)] flex items-center",
+        isScrolled ? "shadow-md" : ""
       )}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between">
+      <div className="container mx-auto px-4 md:px-6 h-full">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <Link href="/" className="flex items-center py-1">
             <div className="relative w-[300px] h-[65px] md:w-[400px] md:h-[80px]">
@@ -85,7 +85,7 @@ export default function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-primary"
+              className="text-primary hover:text-primary hover:bg-primary/5"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}

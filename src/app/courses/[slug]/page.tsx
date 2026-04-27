@@ -57,7 +57,7 @@ export default function CourseDetailsPage() {
     <main className="min-h-screen bg-white flex flex-col">
       <Navbar />
       
-      <section className="flex-grow flex flex-col lg:flex-row h-full min-h-[calc(100vh-80px)] pt-20 lg:pt-0">
+      <section className="flex-grow flex flex-col lg:flex-row h-full min-h-[calc(100vh-var(--navbar-height))] mt-[var(--navbar-height)]">
         
         {/* Left Content Side */}
         <div className="flex-1 flex items-center justify-center p-8 lg:p-16 order-2 lg:order-1 bg-light-bg/50">

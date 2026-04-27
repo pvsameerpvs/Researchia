@@ -11,7 +11,7 @@ export default function AboutPage() {
       <Navbar />
       
       {/* Hero Section with Banner */}
-      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[calc(70vh-var(--navbar-height))] mt-[var(--navbar-height)] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/about-banner.jpg"

@@ -15,7 +15,7 @@ function PaymentContent() {
   const price = searchParams.get("price");
 
   return (
-    <section className="flex-grow flex items-center justify-center py-24 px-4">
+    <section className="flex-grow flex items-center justify-center min-h-[calc(100vh-var(--navbar-height))] mt-[var(--navbar-height)] px-4">
       <div className="w-full max-w-md space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
         
         <div className="text-center space-y-4">

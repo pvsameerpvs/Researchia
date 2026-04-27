@@ -22,7 +22,7 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="pt-32 pb-16 bg-white border-b border-slate-100 relative overflow-hidden">
+      <section className="min-h-[calc(40vh-var(--navbar-height))] mt-[var(--navbar-height)] flex items-center bg-white border-b border-slate-100 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/4 h-full bg-primary/5 blur-3xl rounded-full"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl">

@@ -24,7 +24,7 @@ export default function MyCoursesPage() {
     <main className="min-h-screen bg-slate-50">
       <Navbar />
 
-      <section className="pt-32 pb-24">
+      <section className="min-h-[calc(100vh-var(--navbar-height))] mt-[var(--navbar-height)] py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 mb-16">
             <div className="space-y-3">

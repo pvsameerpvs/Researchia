@@ -6,7 +6,7 @@ import { ArrowRight, Calendar } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-[80vh] lg:min-h-screen flex items-center pt-20 md:pt-24 lg:pt-32 overflow-hidden">
+    <section className="relative w-full min-h-[calc(100vh-var(--navbar-height))] mt-[var(--navbar-height)] flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"

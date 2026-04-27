@@ -1,6 +1,7 @@
 "use client";
 
 import { Microscope, ShieldCheck, Library } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Benchmarks() {
   return (
@@ -17,24 +18,30 @@ export default function Benchmarks() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
           {[
             {
-              icon: <Microscope className="text-primary" size={32} />,
+              icon: Microscope,
               title: "Global Observation Lab",
-              desc: "Secure entry into virtual research environments and curated longitudinal datasets from 180+ global districts."
+              desc: "Secure entry into virtual research environments and curated longitudinal datasets from 180+ global districts.",
+              color: "text-primary"
             },
             {
-              icon: <ShieldCheck className="text-emerald-500" size={32} />,
+              icon: ShieldCheck,
               title: "Doctoral Guardianship",
-              desc: "1-on-1 intellectual guidance from principal researchers and clinical scientists holding lifetime tenure."
+              desc: "1-on-1 intellectual guidance from principal researchers and clinical scientists holding lifetime tenure.",
+              color: "text-emerald-500"
             },
             {
-              icon: <Library className="text-blue-500" size={32} />,
+              icon: Library,
               title: "Scholarly Manuscript Vault",
-              desc: "Exclusive access to non-public behavioral mappings, neuro-anatomical scans, and peer-reviewed case studies."
+              desc: "Exclusive access to non-public behavioral mappings, neuro-anatomical scans, and peer-reviewed case studies.",
+              color: "text-blue-500"
             }
           ].map((feature, idx) => (
             <div key={idx} className="group p-12 rounded-[56px] bg-slate-50 border border-slate-100 hover:border-slate-900 hover:bg-white hover:shadow-[0_40px_80px_-20px_rgba(15,23,42,0.1)] transition-all duration-700 hover:-translate-y-4 text-center flex flex-col items-center gap-10">
-              <div className="w-24 h-24 rounded-[32px] bg-white flex items-center justify-center shadow-xl shadow-slate-200/50 group-hover:scale-110 group-hover:bg-slate-900 group-hover:text-white transition-all duration-500 rotate-3 group-hover:rotate-0">
-                {feature.icon}
+              <div className={cn(
+                "w-24 h-24 rounded-[32px] bg-white flex items-center justify-center shadow-xl shadow-slate-200/50 group-hover:scale-110 group-hover:bg-slate-900 group-hover:text-white transition-all duration-500 rotate-3 group-hover:rotate-0",
+                feature.color
+              )}>
+                <feature.icon size={32} />
               </div>
               <div className="space-y-6">
                  <h3 className="text-3xl font-black text-slate-900 tracking-tight uppercase italic">{feature.title}</h3>
