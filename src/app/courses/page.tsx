@@ -12,7 +12,7 @@ export default function CoursesPage() {
       id: "level-1",
       title: "Foundational",
       subtitle: "Level 01",
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070&auto=format&fit=crop",
+      image: "/level-1-hero.png",
       desc: "Establishing core principles of behavioral research.",
       icon: ScrollText
     },
@@ -20,7 +20,7 @@ export default function CoursesPage() {
       id: "level-2",
       title: "Advanced",
       subtitle: "Level 02",
-      image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop",
+      image: "/level-2-hero.png",
       desc: "Strategic leadership frameworks for professionals.",
       icon: ShieldCheck
     },
@@ -28,7 +28,7 @@ export default function CoursesPage() {
       id: "level-3",
       title: "Global Authority",
       subtitle: "Level 03",
-      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2070&auto=format&fit=crop",
+      image: "/level-3-hero.png",
       desc: "The pinnacle of CBHK authority and global research.",
       icon: Globe
     }
@@ -38,20 +38,24 @@ export default function CoursesPage() {
     <main className="min-h-screen bg-white flex flex-col">
       <Navbar />
       
-      {/* Simplified Hero Section based on User Image */}
-      <section className="relative pt-20 pb-20 px-4 text-center bg-white">
-        <div className="container mx-auto max-w-4xl space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+      {/* Hero Section */}
+      <section className="section-padding bg-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "url('/courses-hero.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        <div className="container-max relative z-10 text-center">
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl font-bold text-[#111] tracking-tight leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight">
               Certification Made Simple <br />
               with CBHK Authority
             </h1>
+            <p className="text-xl text-white/70 font-light max-w-2xl mx-auto">
+              Professional behavioral excellence standards for modern organizational leadership.
+            </p>
           </div>
 
-          <div className="flex justify-center pt-4">
+          <div className="flex justify-center pt-8">
             <Link 
               href="/request-proposal"
-              className="group relative px-12 py-5 bg-gradient-to-b from-[#e3c184] to-[#d4a24c] text-white font-bold rounded-full shadow-[0_10px_40px_-10px_rgba(212,162,76,0.5)] hover:shadow-[0_15px_50px_-10px_rgba(212,162,76,0.6)] transition-all hover:scale-105 active:scale-95 flex items-center gap-3 text-lg border-b-4 border-[#b88a3b]"
+              className="group relative px-12 py-5 bg-gradient-to-b from-accent to-[#b88a3b] text-white font-bold rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 flex items-center gap-3 text-lg"
             >
               Start your course
             </Link>

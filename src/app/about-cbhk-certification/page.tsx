@@ -11,7 +11,7 @@ export default function AboutPage() {
       
       {/* Hero Section */}
       <section className="section-padding bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('/about-banner.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "url('/about-hero.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
         <div className="container-max relative z-10 text-center">
           <span className="text-accent font-bold text-[14px] uppercase tracking-widest mb-4 block">
             About CBHK Certification

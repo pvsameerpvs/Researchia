@@ -31,7 +31,7 @@ export default function Hero() {
               asChild 
               className="bg-accent hover:bg-accent/90 text-white h-14 px-10 text-[16px] font-bold rounded-[8px] shadow-lg transition-all hover:scale-105 active:scale-95"
             >
-              <Link href="/programs">
+              <Link href="/courses">
                 Get Started
               </Link>
             </Button>
