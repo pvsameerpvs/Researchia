@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
               <Button 
                 asChild 
                 variant="link"
-                className="text-primary font-bold p-0 h-auto justify-start hover:text-accent transition-colors group-hover:translate-x-2 transition-transform inline-flex items-center gap-2"
+                className="text-primary font-bold p-0 h-auto justify-start hover:text-accent transition-colors group-hover:translate-x-2 transition-transform inline-flex items-center gap-2 text-[16px]"
               >
                 <Link href={program.href}>
                   Learn More <span>→</span>

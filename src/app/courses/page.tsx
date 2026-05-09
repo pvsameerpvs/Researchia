@@ -55,7 +55,7 @@ export default function CoursesPage() {
           <div className="flex justify-center pt-8">
             <Link 
               href="/request-proposal"
-              className="group relative px-12 py-5 bg-gradient-to-b from-accent to-[#b88a3b] text-white font-bold rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 flex items-center gap-3 text-lg"
+              className="group relative px-16 py-6 bg-gradient-to-b from-accent to-[#b88a3b] text-white font-bold rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 flex items-center gap-3 text-xl"
             >
               Start your course
             </Link>

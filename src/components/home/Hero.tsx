@@ -29,7 +29,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
             <Button 
               asChild 
-              className="bg-accent hover:bg-accent/90 text-white h-14 px-10 text-[16px] font-bold rounded-[8px] shadow-lg transition-all hover:scale-105 active:scale-95"
+              className="bg-accent hover:bg-accent/90 text-white h-16 px-12 text-[18px] font-bold rounded-[8px] shadow-lg transition-all hover:scale-105 active:scale-95"
             >
               <Link href="/courses">
                 Get Started
@@ -39,7 +39,7 @@ export default function Hero() {
             <Button 
               asChild 
               variant="outline"
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary h-14 px-10 text-[16px] font-bold rounded-[8px] transition-all"
+              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary h-16 px-12 text-[18px] font-bold rounded-[8px] transition-all"
             >
               <Link href="/request-proposal">
                 Request a Proposal

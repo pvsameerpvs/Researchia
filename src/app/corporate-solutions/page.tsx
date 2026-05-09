@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { BookOpen, MonitorPlay, Headset, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function CorporateSolutionsPage() {
@@ -20,7 +21,7 @@ export default function CorporateSolutionsPage() {
           <p className="text-body text-white/80 max-w-3xl mx-auto mb-10">
             CBHK Corporate Programs are designed to improve team performance, leadership effectiveness, and workplace accountability through structured behavioral training.
           </p>
-          <Button asChild className="bg-accent hover:bg-accent/90 text-white h-14 px-10 text-[16px] font-bold rounded-[8px]">
+          <Button asChild className="bg-accent hover:bg-accent/90 text-white h-16 px-12 text-[18px] font-bold rounded-[8px]">
             <Link href="/request-proposal">Start Proposal</Link>
           </Button>
         </div>
@@ -51,12 +52,14 @@ export default function CorporateSolutionsPage() {
                 Our programs ensure measurable behavioral improvement that directly impacts organizational performance.
               </p>
             </div>
-            <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-primary/20"></div>
-              {/* Placeholder for corporate team image */}
-              <div className="absolute inset-0 bg-muted flex items-center justify-center">
-                 <span className="text-primary font-bold">Corporate Training Image</span>
-              </div>
+            <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border border-black/5 group">
+              <Image 
+                src="/winner-about.jpg" 
+                alt="Corporate Training Session" 
+                fill 
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-primary/10 transition-colors group-hover:bg-transparent"></div>
             </div>
           </div>
         </div>
@@ -109,7 +112,7 @@ export default function CorporateSolutionsPage() {
           <p className="text-body text-muted-foreground mb-10">
             Get a customized training solution tailored to your organization&apos;s needs.
           </p>
-          <Button asChild className="bg-primary hover:bg-primary/90 text-white h-16 px-12 text-[18px] font-bold rounded-[8px]">
+          <Button asChild className="bg-primary hover:bg-primary/90 text-white h-18 px-14 text-[20px] font-bold rounded-[8px]">
             <Link href="/request-proposal">Get Proposal</Link>
           </Button>
         </div>

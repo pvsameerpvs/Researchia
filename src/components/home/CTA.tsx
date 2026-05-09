@@ -48,7 +48,7 @@ export default function CTA() {
           <div className="pt-6 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-200">
             <Button 
               asChild
-              className="bg-accent hover:bg-accent/90 text-white h-16 px-14 text-[18px] font-black rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 border-b-4 border-[#b88a3b]"
+              className="bg-accent hover:bg-accent/90 text-white h-20 px-16 text-[22px] font-black rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 border-b-4 border-[#b88a3b]"
             >
               <Link href="/contact" className="flex items-center gap-3">
                 Get in Touch With Us Today
