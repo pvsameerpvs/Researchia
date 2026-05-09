@@ -10,9 +10,9 @@ import { useState, useEffect } from "react";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "About", href: "/about-cbhk-certification" },
   { name: "Courses", href: "/courses" },
-  // { name: "Corporate Solutions", href: "/corporate-solutions" },
+  { name: "Corporate Solutions", href: "/corporate-solutions" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -32,104 +32,115 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 h-[var(--navbar-height)] flex items-center",
-        isScrolled 
-          ? "bg-white/80 backdrop-blur-xl border-b border-black/5 shadow-sm" 
-          : "bg-transparent"
+        "sticky top-0 left-0 right-0 z-50 transition-all duration-300 h-[64px] md:h-[80px] flex items-center bg-white border-b",
+        isScrolled ? "shadow-md border-border" : "border-transparent"
       )}
     >
-      <div className="container mx-auto px-4 md:px-6 h-full">
-        <div className="flex items-center justify-between h-full">
-          {/* Logo */}
-          <Link href="/" className="flex items-center py-1 transition-opacity hover:opacity-80">
-            <div className="relative w-[280px] h-[60px] md:w-[320px] md:h-[70px]">
+      <div className="container-max w-full">
+        <div className="flex items-center justify-between">
+          {/* Logo & Branding */}
+          <Link href="/" className="flex items-center gap-2 md:gap-3 transition-opacity hover:opacity-90 flex-shrink-0">
+            <div className="relative w-[35px] h-[35px] md:w-[50px] md:h-[50px]">
               <Image 
                 src="/logo-cbhk.png" 
-                alt="CBHK - Blue Diamond Executive Curriculum" 
+                alt="CBHK Logo" 
                 fill
-                className="object-contain object-left"
+                className="object-contain"
                 priority
               />
             </div>
+            <div className="border-l border-border/50 pl-2 md:pl-3">
+              <span className="text-[10px] md:text-[13px] font-bold text-primary leading-[1.1] md:leading-[1.2] block uppercase tracking-wider">
+                Behavioral Excellence<br className="hidden md:block" /> Certification
+              </span>
+            </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
-            <div className="flex items-center gap-8">
+          {/* Desktop Nav Items */}
+          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+            <div className="flex items-center gap-6 xl:gap-8">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-[14px] font-bold transition-all uppercase tracking-wider relative group",
-                    pathname === item.href 
+                    "text-[13px] xl:text-[14px] font-bold transition-all hover:text-accent relative py-2",
+                    pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
                       ? "text-primary"
-                      : "text-[#555] hover:text-primary"
+                      : "text-muted-foreground"
                   )}
                 >
                   {item.name}
-                  <span className={cn(
-                    "absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full",
-                    pathname === item.href ? "w-full" : ""
-                  )}></span>
+                  {(pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))) && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full"></span>
+                  )}
                 </Link>
               ))}
             </div>
             
             <Button 
               asChild
-              className="bg-[#111] hover:bg-black text-white rounded-full px-8 py-6 text-xs font-black uppercase tracking-widest shadow-xl transition-all hover:scale-105 active:scale-95"
+              className="bg-primary hover:bg-primary/90 text-white rounded-[4px] px-6 h-11 text-[13px] font-bold shadow-sm transition-all active:scale-95 flex-shrink-0"
             >
               <Link href="/request-proposal">
-                Get Started
+                Request a Proposal
               </Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Actions */}
           <div className="lg:hidden flex items-center">
             <Button
               variant="ghost"
               size="icon"
-              className="text-primary hover:text-primary hover:bg-primary/5"
+              className="text-primary hover:bg-muted"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Sidebar Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 shadow-2xl animate-in slide-in-from-top-4 duration-300">
-          <div className="flex flex-col gap-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={cn(
-                  "text-lg font-bold transition-colors uppercase",
-                  pathname === item.href 
-                    ? "text-primary" 
-                    : "text-muted-foreground hover:text-primary"
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Button 
-              asChild
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none w-full py-6 font-bold uppercase"
-            >
-              <Link href="/request-proposal" onClick={() => setMobileMenuOpen(false)}>
-                Request a Proposal
-              </Link>
-            </Button>
-          </div>
-        </div>
+        <div 
+          className="lg:hidden fixed inset-0 top-[64px] bg-black/50 backdrop-blur-sm z-40"
+          onClick={() => setMobileMenuOpen(false)}
+        />
       )}
+
+      {/* Mobile Menu Content */}
+      <div className={cn(
+        "lg:hidden fixed top-[64px] right-0 bottom-0 w-[280px] bg-white z-50 shadow-2xl transition-transform duration-300 ease-in-out p-6",
+        mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+      )}>
+        <div className="flex flex-col gap-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className={cn(
+                "text-[15px] font-bold transition-colors py-2 border-b border-border/50",
+                pathname === item.href 
+                  ? "text-primary" 
+                  : "text-muted-foreground hover:text-primary"
+              )}
+            >
+              {item.name}
+            </Link>
+          ))}
+          <Button 
+            asChild
+            className="bg-accent hover:bg-accent/90 text-white rounded-[4px] w-full h-14 font-bold mt-4 shadow-lg"
+          >
+            <Link href="/request-proposal" onClick={() => setMobileMenuOpen(false)}>
+              Request a Proposal
+            </Link>
+          </Button>
+        </div>
+      </div>
     </nav>
   );
 }

@@ -15,76 +15,70 @@ function PaymentContent() {
   const price = searchParams.get("price");
 
   return (
-    <section className="flex-grow flex items-center justify-center min-h-[calc(100vh-var(--navbar-height))] mt-[var(--navbar-height)] px-4">
-      <div className="w-full max-w-md space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
+    <section className="flex-grow flex items-center justify-center bg-muted/30 px-4 py-12 min-h-[calc(100vh-var(--navbar-height))]">
+      <div className="w-full max-w-md space-y-8 animate-in fade-in zoom-in duration-700">
         
         <div className="text-center space-y-4">
-          <h1 className="text-3xl font-black text-foreground">Secure Payment</h1>
+          <h1 className="text-4xl font-bold text-primary">Secure Payment</h1>
           {plan && (
-            <p className="text-muted-foreground font-medium">
-              Enrolling in <span className="text-primary font-bold">{decodeURIComponent(plan)}</span>
+            <p className="text-muted-foreground font-medium text-lg">
+              Enrolling in <span className="text-accent font-bold">{decodeURIComponent(plan)}</span>
             </p>
           )}
-          <div className="h-1 w-16 bg-border mx-auto rounded-full"></div>
+          <div className="h-1.5 w-16 bg-accent mx-auto rounded-full"></div>
         </div>
 
-        <div className="bg-card rounded-2xl shadow-2xl border border-border overflow-hidden">
-          {/* Dark Header */}
-          <div className="bg-foreground py-4 px-6 flex items-center justify-between">
-            <h2 className="text-white font-bold flex items-center gap-2">
-              <CreditCard size={20} />
-              Credit Card
+        <div className="bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-border overflow-hidden">
+          {/* Header */}
+          <div className="bg-primary py-5 px-8 flex items-center justify-between">
+            <h2 className="text-white font-bold flex items-center gap-3">
+              <CreditCard size={22} />
+              Card Details
             </h2>
-            <div className="flex gap-2">
-              <div className="w-2 h-2 rounded-full bg-red-500"></div>
-              <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-              <div className="w-2 h-2 rounded-full bg-green-500"></div>
+            <div className="flex gap-1.5">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
             </div>
           </div>
 
-          <div className="p-8 space-y-6">
+          <div className="p-8 md:p-10 space-y-8">
             
-            {/* Card Input */}
             <div className="space-y-2">
-              <Label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Card Information</Label>
+              <Label className="text-[11px] font-black uppercase tracking-widest text-muted-foreground">Card Information</Label>
               <div className="relative">
                 <Input 
                   placeholder="0000 0000 0000 0000" 
-                  className="pl-10 h-12 font-mono text-lg bg-muted/50 border-input"
+                  className="pl-12 h-14 font-mono text-lg bg-muted/20 border-border rounded-xl focus:ring-accent"
                 />
-                <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 flex gap-1">
-                   {/* Mock Card Icons */}
-                   <div className="w-8 h-5 bg-blue-600 rounded flex items-center justify-center text-[8px] text-white font-black italic">VISA</div>
-                   <div className="w-8 h-5 bg-red-500 rounded flex items-center justify-center text-[8px] text-white font-black italic">MC</div>
+                <CreditCard className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-1.5">
+                   <div className="w-10 h-6 bg-blue-600 rounded flex items-center justify-center text-[9px] text-white font-black italic">VISA</div>
+                   <div className="w-10 h-6 bg-red-500 rounded flex items-center justify-center text-[9px] text-white font-black italic">MC</div>
                 </div>
               </div>
             </div>
 
-            {/* Expiry & CVC */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-6">
               <div className="space-y-2">
-                <Label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Expiry</Label>
-                <Input placeholder="MM / YY" className="h-12 font-mono text-center bg-muted/50 border-input" />
+                <Label className="text-[11px] font-black uppercase tracking-widest text-muted-foreground">Expiry</Label>
+                <Input placeholder="MM / YY" className="h-14 font-mono text-center bg-muted/20 border-border rounded-xl" />
               </div>
               <div className="space-y-2">
-                <Label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">CVC</Label>
+                <Label className="text-[11px] font-black uppercase tracking-widest text-muted-foreground">CVC</Label>
                 <div className="relative">
-                  <Input placeholder="123" className="h-12 font-mono text-center bg-muted/50 border-input" />
-                  <Lock className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={14} />
+                  <Input placeholder="123" className="h-14 font-mono text-center bg-muted/20 border-border rounded-xl" />
+                  <Lock className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
                 </div>
               </div>
             </div>
 
-            {/* Payment Gateways Row */}
-            <div className="flex items-center justify-center gap-4 py-2 opacity-50 grayscale hover:grayscale-0 transition-all cursor-not-allowed">
-              <span className="text-xl font-black text-blue-800 italic">PayPal</span>
-              <span className="text-xl font-black text-blue-600 italic">VISA</span>
-              <span className="text-xl font-black text-red-500 italic">Mastercard</span>
-              <span className="text-xl font-black text-indigo-600">stripe</span>
+            <div className="flex items-center justify-center gap-6 py-2 opacity-30">
+              <span className="text-xl font-black italic">stripe</span>
+              <span className="text-xl font-black italic">PayPal</span>
+              <span className="text-xl font-black italic">VISA</span>
             </div>
 
-            {/* Submit Button */}
             <Button 
               onClick={(e) => {
                 const target = e.currentTarget;
@@ -99,9 +93,9 @@ function PaymentContent() {
               Complete Purchase {price ? `- $${price}` : ""}
             </Button>
 
-            <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-              <ShieldCheck size={14} className="text-green-600" />
-              <span>SSL Encrypted Transaction</span>
+            <div className="flex items-center justify-center gap-2 text-xs font-bold text-muted-foreground uppercase tracking-widest">
+              <ShieldCheck size={16} className="text-green-600" />
+              <span>SSL Secured via CBHK</span>
             </div>
 
           </div>

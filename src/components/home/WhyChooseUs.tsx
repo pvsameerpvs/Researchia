@@ -1,75 +1,68 @@
-"use client";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-import { Layout, Shield, Search, Zap } from "lucide-react";
-
-const reasons = [
+const programs = [
   {
-    title: "Framework-Based Approach",
-    description: "Our structured methodologies provide a solid foundation for sustainable growth and consistent excellence.",
-    icon: Layout,
+    level: "Level 1",
+    title: "Behavioral Foundations",
+    description: "Core skills for accountability, communication, and professional behavior at the individual level.",
+    href: "/courses/level-1",
   },
   {
-    title: "Practical Expertise",
-    description: "Deep industry knowledge combined with real-world application ensures high-impact results for your organization.",
-    icon: Zap,
+    level: "Level 2",
+    title: "Organizational Behavior",
+    description: "Advanced strategies for managing teams, leadership communication, and improving dynamics.",
+    href: "/courses/level-2",
   },
   {
-    title: "Accountability Systems",
-    description: "Robust tracking and reporting mechanisms that keep teams focused and projects on schedule.",
-    icon: Shield,
-  },
-  {
-    title: "Proven Results",
-    description: "A track record of success with measurable outcomes that demonstrate real value and long-term impact.",
-    icon: Search,
+    level: "Level 3",
+    title: "Behavioral Leadership Mastery",
+    description: "Executive-level leadership, strategic thinking, and organizational transformation for senior leaders.",
+    href: "/courses/level-3",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 md:py-32 bg-primary relative overflow-hidden">
-      {/* Subtle Pattern Overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" 
-           style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
-      </div>
-
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="flex items-center justify-center gap-4 md:gap-8 mb-16 md:mb-24">
-          <div className="h-px flex-grow max-w-[100px] md:max-w-[200px] bg-accent/50"></div>
-          <h2 className="text-3xl md:text-5xl font-serif font-medium text-white text-center whitespace-nowrap">
-            Why Choose Us
+    <section className="section-padding bg-muted">
+      <div className="container-max">
+        <div className="text-center mb-16">
+          <h2 className="text-h2-section text-primary mb-4">
+            Our Certification Programs
           </h2>
-          <div className="h-px flex-grow max-w-[100px] md:max-w-[200px] bg-accent/50"></div>
+          <div className="h-1 w-20 bg-accent mx-auto rounded-full"></div>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-white/20">
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              {reasons.map((reason, index) => (
-                <div 
-                  key={index} 
-                  className={`p-8 md:p-12 flex gap-6 items-start transition-colors hover:bg-muted/30 ${
-                    index % 2 === 0 ? "md:border-r" : ""
-                  } ${
-                    index < 2 ? "border-b" : ""
-                  } border-border/50`}
-                >
-                  <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-primary/5 flex items-center justify-center text-accent">
-                    <reason.icon size={32} strokeWidth={1.5} />
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-bold text-primary tracking-tight">
-                      {reason.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                      {reason.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {programs.map((program, index) => (
+            <div 
+              key={index} 
+              className="bg-white p-8 md:p-10 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex flex-col space-y-6 transition-all duration-300 hover:-translate-y-2 group"
+            >
+              <div className="space-y-2">
+                <span className="text-accent font-bold text-[14px] uppercase tracking-widest">
+                  {program.level}
+                </span>
+                <h3 className="text-h3-card text-primary leading-tight">
+                  {program.title}
+                </h3>
+              </div>
+              
+              <p className="text-small text-muted-foreground leading-relaxed flex-grow">
+                {program.description}
+              </p>
+
+              <Button 
+                asChild 
+                variant="link"
+                className="text-primary font-bold p-0 h-auto justify-start hover:text-accent transition-colors group-hover:translate-x-2 transition-transform inline-flex items-center gap-2"
+              >
+                <Link href={program.href}>
+                  Learn More <span>→</span>
+                </Link>
+              </Button>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,73 +1,80 @@
-"use client";
+const stats = [
+  { label: "Improved Accountability", value: "72%" },
+  { label: "Reduction in Workplace Conflicts", value: "60%" },
+  { label: "Enhanced Leadership Communication", value: "85%" },
+  { label: "Increased Team Productivity", value: "90%" },
+];
 
-import { Globe, Users, Database, ShieldCheck } from "lucide-react";
-
-const features = [
+const solutions = [
   {
-    icon: Globe,
-    title: "Global Lab Access",
-    desc: "Engage with virtual research laboratories and longitudinal datasets from any academic district globally.",
-    color: "text-primary"
+    title: "Group Certification Programs",
+    description: "Tailored behavioral training programs for your teams to ensure alignment and peak performance.",
   },
   {
-    icon: Users,
-    title: "Doctoral Mentorship",
-    desc: "Work directly with tenured professors and principal researchers with decades of clinical experience.",
-    color: "text-accent"
+    title: "Leadership Workshops",
+    description: "Executive-level development and leadership training focused on strategic influence.",
   },
   {
-    icon: Database,
-    title: "Research Infrastructure",
-    desc: "Access state-of-the-art computational resources and specialized equipment tailored for behavioral discovery.",
-    color: "text-primary"
-  }
+    title: "Train-the-Trainer Courses",
+    description: "Certify and develop your internal trainers to scale behavioral excellence across your organization.",
+  },
 ];
 
 export default function InstitutionalExcellence() {
   return (
-    <section className="py-24 md:py-32 bg-white relative">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col items-center text-center space-y-6 mb-20 md:mb-24">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 text-primary text-sm font-bold uppercase tracking-wider">
-            <ShieldCheck size={16} />
-            Accredited Excellence
+    <div className="bg-white">
+      {/* Results Section */}
+      <section className="section-padding border-b border-border">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <h2 className="text-h2-section text-primary mb-4">
+              Proven Results for Your Business
+            </h2>
+            <div className="h-1 w-20 bg-accent mx-auto rounded-full"></div>
           </div>
-          
-          <h2 className="text-3xl md:text-5xl font-serif font-medium text-primary tracking-tight">
-            Institutional Excellence
-          </h2>
-          
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl font-light">
-            Providing the academic infrastructure and scholarly community required for 
-            groundbreaking discoveries in human behavior and organizational science.
-          </p>
-          
-          <div className="h-1.5 w-24 bg-accent rounded-full"></div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="group p-8 md:p-10 bg-muted/30 rounded-2xl border border-border/50 hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-2"
-            >
-              <div className={`mb-8 p-4 rounded-xl bg-white shadow-sm inline-block ${feature.color} group-hover:scale-110 transition-transform duration-500`}>
-                <feature.icon size={36} strokeWidth={1.5} />
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center space-y-2">
+                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-accent">
+                  {stat.value}
+                </div>
+                <div className="text-small font-semibold text-primary uppercase tracking-wider">
+                  {stat.label}
+                </div>
               </div>
-              
-              <h3 className="text-xl md:text-2xl font-bold text-primary mb-4 tracking-tight">
-                {feature.title}
-              </h3>
-              
-              <p className="text-muted-foreground leading-relaxed font-medium">
-                {feature.desc}
-              </p>
-              
-              <div className="mt-8 h-1 w-0 bg-accent group-hover:w-full transition-all duration-500 rounded-full"></div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Corporate Solutions Section */}
+      <section className="section-padding">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <h2 className="text-h2-section text-primary mb-4">
+              Corporate Training Solutions
+            </h2>
+            <div className="h-1 w-20 bg-accent mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {solutions.map((solution, index) => (
+              <div 
+                key={index} 
+                className="p-8 border border-border rounded-[12px] hover:border-accent transition-colors group"
+              >
+                <h3 className="text-h3-card text-primary mb-4 group-hover:text-accent transition-colors">
+                  {solution.title}
+                </h3>
+                <p className="text-small text-muted-foreground leading-relaxed">
+                  {solution.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

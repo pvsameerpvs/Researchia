@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Researchia | PhD Behavioral Research Institute",
-  description: "Advancing the frontiers of behavioral science through elite doctoral research programs and neural pattern investigations.",
+  title: "CBHK – Behavioral Excellence Certification",
+  description: "Premium behavioral development programs for organizations in the UAE. Enhancing accountability, leadership, and workplace performance through structured training.",
 };
 
 export default function RootLayout({

@@ -39,7 +39,7 @@ export default function CoursesPage() {
       <Navbar />
       
       {/* Simplified Hero Section based on User Image */}
-      <section className="relative pt-[calc(var(--navbar-height)+100px)] pb-20 px-4 text-center bg-white">
+      <section className="relative pt-20 pb-20 px-4 text-center bg-white">
         <div className="container mx-auto max-w-4xl space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <div className="space-y-4">
             <h1 className="text-5xl md:text-6xl font-bold text-[#111] tracking-tight leading-tight">

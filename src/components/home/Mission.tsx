@@ -1,62 +1,55 @@
-"use client";
+import { ShieldCheck, TrendingUp, Users } from "lucide-react";
 
-import { Users, BarChart3, Briefcase } from "lucide-react";
-
-const missions = [
+const values = [
   {
-    title: "Enhance Workplace Culture",
-    description: "Fostering an environment of inclusivity, growth, and shared values to build a resilient and motivated workforce.",
+    title: "Reduce Internal Conflict",
+    description: "Improve communication and minimize workplace misunderstandings through structured behavioral alignment.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Improve Leadership Effectiveness",
+    description: "Strengthen leadership behavior and decision-making capabilities at all levels of your organization.",
+    icon: TrendingUp,
+  },
+  {
+    title: "Enhance Team Productivity",
+    description: "Build alignment, accountability, and peak performance through evidence-based behavioral strategies.",
     icon: Users,
-  },
-  {
-    title: "Enhance Organizational Ability",
-    description: "Optimizing internal processes and leadership capabilities to achieve peak performance and operational agility.",
-    icon: BarChart3,
-  },
-  {
-    title: "Improve Responsiveness",
-    description: "Developing the capacity to adapt quickly to market changes and stakeholder needs through strategic foresight.",
-    icon: Briefcase,
   },
 ];
 
 export default function Mission() {
   return (
-    <section className="py-24 md:py-32 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16 md:mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest mb-6">
-            Institutional Purpose
-          </div>
-          <h2 className="text-3xl md:text-5xl font-serif font-medium text-primary mb-6">
-            Our Mission: Elevating <span className="italic">Workplace Excellence</span>
+    <section className="section-padding bg-white">
+      <div className="container-max">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <h2 className="text-h2-section text-primary mb-6">
+            Transforming Workplace Behavior for Success
           </h2>
-          <div className="h-1.5 w-24 bg-accent mx-auto rounded-full"></div>
+          <p className="text-body text-muted-foreground">
+            CBHK provides structured training programs that deliver measurable behavioral improvement across your organization.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-primary/10 rounded-[40px] overflow-hidden shadow-2xl shadow-primary/[0.02]">
-          {missions.map((item, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {values.map((item, index) => (
             <div 
               key={index} 
-              className={`group p-10 md:p-16 flex flex-col items-center text-center space-y-8 transition-all duration-500 hover:bg-primary/[0.02] ${
-                index !== missions.length - 1 ? "md:border-r border-primary/10" : ""
-              } border-b md:border-b-0 border-primary/10`}
+              className="bg-muted p-8 md:p-10 rounded-[12px] flex flex-col space-y-6 transition-all duration-300 hover:shadow-lg border border-transparent hover:border-primary/5 group"
             >
-              <div className="w-24 h-24 rounded-full bg-white border border-primary/10 flex items-center justify-center text-primary shadow-xl shadow-primary/[0.03] transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white group-hover:border-primary">
-                <item.icon size={40} strokeWidth={1.5} />
+              <div className="w-14 h-14 rounded-[8px] bg-primary flex items-center justify-center text-white shadow-md transition-transform group-hover:scale-110">
+                <item.icon size={28} strokeWidth={2} />
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold text-primary tracking-tight transition-colors">
+                <h3 className="text-h3-card text-primary">
                   {item.title}
                 </h3>
                 
-                <p className="text-muted-text leading-relaxed text-sm md:text-base max-w-xs font-light">
+                <p className="text-small text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
               </div>
-
-              <div className="pt-4 h-1 w-0 bg-accent group-hover:w-16 transition-all duration-500 rounded-full"></div>
             </div>
           ))}
         </div>
