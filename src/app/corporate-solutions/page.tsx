@@ -14,7 +14,7 @@ export default function CorporateSolutionsPage() {
       <section className="section-padding bg-primary text-white relative flex items-center overflow-hidden">
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{ backgroundImage: "url('/corporate-hero.png')" }}
+          style={{ backgroundImage: "url('/herosection.jpg')" }}
         ></div>
         <div className="container-max relative z-10 text-center">
           <h1 className="text-h1-hero mb-8">Corporate Solutions</h1>

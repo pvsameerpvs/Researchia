@@ -9,7 +9,7 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero-banner.jpg')" }}
+        style={{ backgroundImage: "url('/herosection.jpg')" }}
       >
         {/* Cool blue grading and dark gradient overlay for readability */}
         <div className="absolute inset-0 bg-primary/40"></div>
